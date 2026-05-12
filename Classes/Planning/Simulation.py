@@ -1,5 +1,4 @@
-from pydantic import BaseModel
-class SimulationEngine(BaseModel):
+class SimulationEngine:
     #Metodos de Simulación:
     """
     run(traveler: Traveler, graph: Graph) -> None

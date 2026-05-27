@@ -1,4 +1,4 @@
-from RouteEngine.Itinerary import Itinerary
+from Classes.RouteEngine.Itinerary import Itinerary
 class Traveler:
     def __init__(self, budget, timeAvailable, history, timeSinceLastMeal, timeSinceLastAccommodation):
         self.budget = budget

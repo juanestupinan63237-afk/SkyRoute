@@ -3,7 +3,7 @@ class Route:
         self.origin = origin
         self.destination = destination
         self.time = time
-        self.aircraft = list[aircraft]
+        self.aircraft = aircraft
         self.distance = distance
         self.basePrice = basePrice
         self.minStay = minStay

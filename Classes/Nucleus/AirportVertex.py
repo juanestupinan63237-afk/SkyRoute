@@ -11,3 +11,7 @@ class Airport:
         self.foodCost = foodCost
         self.activities = activities
         self.jobs = jobs
+        self.adjacencies = []
+
+    def insertAdjacencies(self, adjacency):
+        self.adjacencies.append(adjacency)

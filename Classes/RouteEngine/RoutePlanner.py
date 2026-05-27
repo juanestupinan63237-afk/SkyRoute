@@ -1,8 +1,5 @@
-from Nucleus.Graph import Graph
-from Nucleus.Route import Route
-from Domain.Aircraft import CommercialAirplane
-from Domain.Aircraft import RegionalPlane
-from Domain.Aircraft import Propeller
+from Classes.Nucleus.Graph import Graph
+from Classes.Nucleus.Route import Route
 import math
 import heapq
 
@@ -59,7 +56,7 @@ class RoutePlanner:
         elif criterion == "time":
             return route.time
         else:
-            return (route.basePrice + (route.distance * route.aircraft.costPerKm))
+            return (route.basePrice + (route.distance * route.aircraft.costKm))
 
     def rebuildRoute(self, fathers, origin, destination):
         route = []

@@ -1,7 +1,7 @@
 from Classes.Domain.Job import Job
 from Classes.Domain.ActivityUser import Activity
 class Airport:
-    def __init__(self, iataId, name, city, country, isHub, accommodationCost, foodCost, activities : Activity, jobs : Job):
+    def __init__(self, iataId, name, city, country, isHub, accommodationCost, foodCost):
         self.iataId = iataId
         self.name = name
         self.city = city
@@ -9,9 +9,18 @@ class Airport:
         self.isHub = isHub
         self.accommodationCost = accommodationCost
         self.foodCost = foodCost
-        self.activities = activities
-        self.jobs = jobs
         self.adjacencies = []
+        self.activities = []
+        self.jobs = []
+
+    def insertAdjacencies(self, adjacency):
+        self.adjacencies.append(adjacency)
+
+    def insertActivity(self, activity: Activity):
+        self.activities.append(activity)
+
+    def insertJob(self, job: Job):
+        self.jobs.append(job)
 
     def insertAdjacencies(self, adjacency):
         self.adjacencies.append(adjacency)

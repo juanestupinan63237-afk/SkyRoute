@@ -29,3 +29,8 @@ class Graph:
         if airport is not None:
             return airport.adjacencies
         return airport
+
+    def blockRoute(self, originIata, destinationIata):
+        for s in self.routes:
+            if s.origin.iataId == originIata and s.destination.iataId == destinationIata:
+                s.isBlocked = True

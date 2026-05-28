@@ -7,10 +7,18 @@ class RoutePlanner:
     def calculateRoute(self, graph : Graph, origin, destination, criterion, allowedAircraft = None, excludeSecondary = False):
         if origin not in graph.airports or destination not in graph.airports:
             raise ValueError("Another airport doesn't exist")
+        if isinstance(criterion,str):
+            processCriteria = [criterion]
+        else:
+            processCriteria = criterion
         validCriteria = ["distance", "time", "cost"]
-        if criterion.lower() not in validCriteria:
-            raise ValueError("Invalid criterion")
-        return self.dijkstra(graph, origin, destination, criterion, allowedAircraft, excludeSecondary)
+        result = {}
+        for c in processCriteria:
+            if c.lower() not in validCriteria:
+                raise ValueError(f"Invalid criterion {c}")
+            route = self.dijkstra(graph, origin, destination, c, allowedAircraft, excludeSecondary)
+            result[c.lower()] = route
+        return route
 
     def dijkstra(self, graph: Graph, origin, destination, criterion, allowedAircraft, excludeSecondary):
         distances = {}

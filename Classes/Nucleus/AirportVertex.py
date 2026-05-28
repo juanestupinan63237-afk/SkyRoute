@@ -21,6 +21,3 @@ class Airport:
 
     def insertJob(self, job: Job):
         self.jobs.append(job)
-
-    def insertAdjacencies(self, adjacency):
-        self.adjacencies.append(adjacency)

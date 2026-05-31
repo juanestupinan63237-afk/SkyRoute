@@ -12,12 +12,14 @@ class RoutePlanner:
         else:
             processCriteria = criterion
         validCriteria = ["distance", "time", "cost"]
-        result = {}
+        result = []
         for c in processCriteria:
             if c.lower() not in validCriteria:
                 raise ValueError(f"Invalid criterion {c}")
             route = self.dijkstra(graph, origin, destination, c, allowedAircraft, excludeSecondary)
-            result[c.lower()] = route
+            result.append(route)
+        if len(result) == 1:
+            return result[0]
         return result
 
     def dijkstra(self, graph: Graph, origin, destination, criterion, allowedAircraft, excludeSecondary):
@@ -30,7 +32,7 @@ class RoutePlanner:
         queue = [(0, count, origin, 0, 0)]
         criterion = criterion.lower()
         if origin == destination:
-            return {"route": [origin.iataId], "totalWeight": 0, "criterion": criterion}
+            return [origin.iataId]
         while queue:
             currentDistance, _, currentAirport, currentSubsidized, currentTotalDist = heapq.heappop(queue)
             if currentDistance > distances[currentAirport]:
@@ -61,9 +63,9 @@ class RoutePlanner:
                     fathers[neighbor] = currentAirport
                     heapq.heappush(queue, (newDistance, count, neighbor, newSubsidized, newTotalDistance))
         if distances[destination] == math.inf:
-            return {"path":[], "totalWeight":math.inf, "criterion": criterion}
+            return []
         route = self.rebuildRoute(fathers, origin, destination)
-        return {"route":route, "totalWeight":distances[destination], "criterion": criterion}
+        return route
 
     def getWeight(self, route: Route, criterion):
         if criterion == "distance":
@@ -91,10 +93,10 @@ class RoutePlanner:
             if airportOrigin == a.iataId:
                 origin = a
         if origin is None:
-            return {"success": False, "message": "Airport not found in our database"}
+            return []
         self.bestRoute = []
         visited = set()
-        def dfs(currentAirport, currentBudget, currentRoute, usedAircraft):
+        def dfs(currentAirport, currentBudget, currentRoute, usedAircraft, currentAccumulatedTime):
             if currentBudget > maximumBudget:
                 return
             if len(currentRoute) > len(self.bestRoute) and len(usedAircraft) == 3:
@@ -106,16 +108,21 @@ class RoutePlanner:
                 neighbor = route.destination
                 if neighbor not in visited:
                     temporalBudget = 0
+                    newAccumulatedTime = currentAccumulatedTime + route.time
                     if limit.lower() == "cost":
-                        temporalBudget = (route.basePrice + route.aircraft.calculateCost(route.distance)) + (neighbor.accommodationCost + neighbor.foodCost)
+                        flightCost = route.basePrice + route.aircraft.calculateCost(route.distance)
+                        mealsNeeded = int(newAccumulatedTime // 8) - int(currentAccumulatedTime // 8)
+                        staysNeeded = int(newAccumulatedTime // 20) - int(currentAccumulatedTime // 20)
+                        bioCost = (mealsNeeded * neighbor.foodCost) + (staysNeeded * neighbor.accommodationCost)
+                        temporalBudget = flightCost + bioCost
                     elif limit.lower() == "time":
                         temporalBudget = route.aircraft.calculateCostTime(route.time)
                     newAircraft = set(usedAircraft)
                     newAircraft.add(route.aircraft.type)
-                    dfs(neighbor, currentBudget + temporalBudget, currentRoute + [neighbor], newAircraft)
+                    dfs(neighbor, currentBudget + temporalBudget, currentRoute + [neighbor], newAircraft, newAccumulatedTime)
             visited.remove(currentAirport)
-        dfs(origin, 0, [origin], set())
-        return {
-            "success": len(self.bestRoute) > 0,
-            "bestRoute": [a.iataId for a in self.bestRoute]
-        }
+        dfs(origin, 0, [origin], set(), 0.0)
+        finalRoute = []
+        for a in self.bestRoute:
+            finalRoute.append(a.iataId)
+        return finalRoute

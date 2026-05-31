@@ -1,11 +1,9 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, request, jsonify , render_template
 from Classes.Nucleus.Graph import Graph
 from Classes.RouteEngine.RoutePlanner import RoutePlanner
 from Classes.Services.InterruptionsService import Interruptions
 
 app = Flask(__name__)
-CORS(app)
 
 graph = Graph()
 planner = RoutePlanner()
@@ -13,7 +11,7 @@ interruptionService = Interruptions()
 
 @app.route("/")
 def home():
-    return "¡Servidor de Flask corriendo perfectamente, Simón!"
+    return render_template ("index.html")
 
 @app.route('/api/calculateRoute', methods=['POST'])
 def apiCalculateRoute():
@@ -63,4 +61,4 @@ def apiOptimize():
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True)

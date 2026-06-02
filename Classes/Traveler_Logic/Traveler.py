@@ -1,7 +1,8 @@
 from Classes.RouteEngine.Itinerary import Itinerary
 from Classes.RouteEngine.RoutePlanner import RoutePlanner
+from Classes.Domain.ActiveFly import ActiveFly
 class Traveler:
-    def __init__(self, budget,timeAvailable , actualAirportId , timeSinceLastMeal = 0 , timeSinceLastAccommodation = 0, history = None , activeUser = True):
+    def __init__(self, budget,timeAvailable , actualAirportId , timeSinceLastMeal = 0 , timeSinceLastAccommodation = 0, history = None , activeUser = True , activities = [] , restantActivities=[]):
         self.budget = budget
         self.restantBudget = budget
         self.timeAvailable = timeAvailable
@@ -10,6 +11,8 @@ class Traveler:
         self.timeSinceLastAccommodation = timeSinceLastAccommodation
         self.activeUser = activeUser
         self.actualAirportId = actualAirportId
+        self.activities:list = activities
+        self.restantActivities = restantActivities
 
     def CreateItineraryPerCriterion (self ,graph ,criterion , origin , destination , allowedAircraft = None):
         self.history = RoutePlanner().calculateRoute (graph , origin , destination , criterion , allowedAircraft)
@@ -40,3 +43,10 @@ class Traveler:
             if percent_of_budget <= 25:
                 return True
         return False
+    
+    def AddActivitie (self , activity):
+        idx = 0
+        for i in enumerate (self.restantActivities):
+            if self.activities[i] != type (ActiveFly):
+                idx += 1
+        self.activities.insert (idx , activity)

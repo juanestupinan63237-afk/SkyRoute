@@ -1,6 +1,6 @@
 class Activity:
-    def __init__(self, name, type, duration, price):
+    def __init__(self, name , id , duration, price):
         self.name = name
-        self.type = type
+        self.id = id
         self.duration = duration
         self.price = price

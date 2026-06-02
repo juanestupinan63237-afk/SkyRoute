@@ -7,4 +7,4 @@ class ActiveFly:
         self.restantHours = restantHours
 
     def DescountHours (self , hours):
-        self.DescountHours -= hours
+        self.restantHours -= hours

@@ -9,11 +9,22 @@ app = Flask(__name__)
 graph = Graph()
 planner = RoutePlanner()
 interruptionService = Interruptions()
-travelers = []
+travelers:list[Traveler] = []
+temporalTravels = []
 
 @app.route("/")
 def home():
     return render_template ("index.html")
+
+@app.route ("/traveler/descountTime")
+async def DescountTime ():
+    data = request.get_json ()
+    time = data.get("time")
+    for traveler in travelers:
+        temp_airport = graph.getAirportPerCode (traveler.actualAirportId)
+        traveler.pastTime (time)
+        traveler.descountToFood (temp_airport.foodCost)
+        traveler.descountToAcommodation (temp_airport.accommodationCost)
 
 @app.route('/api/calculateRoute', methods=['POST'])
 async def apiCalculateRoute():
@@ -65,7 +76,7 @@ async def apiOptimize():
 @app.route ("/api/traveler" , methods= ["POST"])
 async def CreateTraveler ():
     data = request.get_json
-    travelers.append (Traveler (data.get("Budget") , data.get("timeAvailable")))
+    travelers.append (Traveler (data.get("Budget") , data.get("timeAvailable") , data.get("actualAirportId")))
     return jsonify ({"request" : "ok, the traveler had benn created in the system..."})
 
 

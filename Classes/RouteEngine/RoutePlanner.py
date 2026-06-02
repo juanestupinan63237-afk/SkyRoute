@@ -20,7 +20,7 @@ class RoutePlanner:
             route , totalCost = self.dijkstra(graph, origin, destination, c, allowedAircraft, excludeSecondary)
             result.append(route)
         if len(result) == 1:
-            return result[0]
+            return self.CreateItinerary (result[0] , criterion , totalCost)
         return self.CreateItinerary (route , criterion , totalCost)
 
     def dijkstra(self, graph: Graph, origin, destination, criterion, allowedAircraft, excludeSecondary):

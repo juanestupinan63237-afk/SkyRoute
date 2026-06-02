@@ -2,7 +2,7 @@ from Classes.Nucleus.AirportVertex import Airport
 from Classes.Nucleus.Route import Route
 class Graph:
     def __init__(self):
-        self.airports = []
+        self.airports: list[Airport] = []
         self.routes = []
 
     def insertAirports(self, airport : Airport):
@@ -34,3 +34,9 @@ class Graph:
         for s in self.routes:
             if s.origin.iataId == originIata and s.destination.iataId == destinationIata:
                 s.isBlocked = True
+
+    def getAirportPerCode (self , code):
+        for i in self.airports:
+            if i.iataId == code:
+                return i
+        raise Exception ("Don´t find this code in the existent airports...")

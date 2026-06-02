@@ -1,6 +1,6 @@
 
 class Itinerary:
-    def __init__(self, totalCost, totalTime, visitedDestinations):
+    def __init__(self, visitedDestinations , criterion , totalCost):
         self.totalCost = totalCost
-        self.totalTime = totalTime
+        self.criterion = criterion
         self.visitedDestinations = visitedDestinations

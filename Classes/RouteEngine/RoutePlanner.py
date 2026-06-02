@@ -1,5 +1,6 @@
 from Classes.Nucleus.Graph import Graph
 from Classes.Nucleus.Route import Route
+from Classes.RouteEngine.Itinerary import Itinerary
 import math
 import heapq
 
@@ -16,11 +17,11 @@ class RoutePlanner:
         for c in processCriteria:
             if c.lower() not in validCriteria:
                 raise ValueError(f"Invalid criterion {c}")
-            route = self.dijkstra(graph, origin, destination, c, allowedAircraft, excludeSecondary)
+            route , totalCost = self.dijkstra(graph, origin, destination, c, allowedAircraft, excludeSecondary)
             result.append(route)
         if len(result) == 1:
             return result[0]
-        return result
+        return self.CreateItinerary (route , criterion , totalCost)
 
     def dijkstra(self, graph: Graph, origin, destination, criterion, allowedAircraft, excludeSecondary):
         distances = {}
@@ -65,7 +66,7 @@ class RoutePlanner:
         if distances[destination] == math.inf:
             return []
         route = self.rebuildRoute(fathers, origin, destination)
-        return route
+        return route , distances [destination]
 
     def getWeight(self, route: Route, criterion):
         if criterion == "distance":
@@ -126,3 +127,6 @@ class RoutePlanner:
         for a in self.bestRoute:
             finalRoute.append(a.iataId)
         return finalRoute
+    
+    def CreateItinerary(self , visitedDestinations , criterion , totalCost):
+        return Itinerary (visitedDestinations= visitedDestinations , totalCost= totalCost , criterion= criterion)

@@ -3,24 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>SkyRoute Planner - Panel de Control</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f4f6f9; color: #333; }
-        h1 { color: #2c3e50; text-align: center; }
-        .container { max-width: 900px; margin: 0 auto; }
-        .section { background: white; padding: 25px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        h2 { color: #2980b9; margin-top: 0; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; font-weight: bold; margin-bottom: 5px; color: #555; }
-        input, select, button { padding: 10px; width: 100%; max-width: 400px; display: block; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; box-sizing: border-box; }
-        button { background-color: #27ae60; color: white; cursor: pointer; border: none; font-weight: bold; margin-top: 15px; transition: background 0.2s; }
-        button:hover { background-color: #219653; }
-        .btn-blue { background-color: #2980b9; }
-        .btn-blue:hover { background-color: #2471a3; }
-        .btn-red { background-color: #c0392b; }
-        .btn-red:hover { background-color: #a93226; }
-        .result { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 6px; margin-top: 15px; white-space: pre-wrap; font-family: 'Courier New', Courier, monospace; font-size: 13px; max-height: 250px; overflow-y: auto; }
-    </style>
+
 </head>
+<link rel="stylesheet" href="static/style.css">
 <body>
 
 <div class="container">
@@ -96,78 +81,6 @@
     </div>
 </div>
 
-<script>
-    const SERVER_URL = 'http://127.0.0.1:5000';
-
-    // 1. Envío para Dijkstra
-    async function calcularRutaDijkstra() {
-        const payload = {
-            origin: document.getElementById('routeOrigin').value.toUpperCase().trim(),
-            destination: document.getElementById('routeDest').value.toUpperCase().trim(),
-            criterion: document.getElementById('routeCriterion').value
-        };
-        const box = document.getElementById('resultDijkstra');
-        box.innerText = "Calculando ruta óptima...";
-
-        try {
-            const response = await fetch(`${SERVER_URL}/api/calcular-ruta`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            const data = await response.json();
-            box.innerText = JSON.stringify(data, null, 2);
-        } catch (e) {
-            box.innerText = "Error operativo: Verifica que el servidor Flask esté encendido.";
-        }
-    }
-
-    // 2. Envío para Bloqueos
-    async function reportarBloqueo() {
-        const payload = {
-            originBlocked: document.getElementById('blockOrigin').value.toUpperCase().trim(),
-            destinationBlocked: document.getElementById('blockDest').value.toUpperCase().trim(),
-            finalDestination: document.getElementById('finalDest').value.toUpperCase().trim(),
-            criterion: document.getElementById('blockCriterion').value
-        };
-        const box = document.getElementById('resultBloqueo');
-        box.innerText = "Procesando bloqueo en el grafo y recalculando desvío...";
-
-        try {
-            const response = await fetch(`${SERVER_URL}/api/BlockedRoute`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            const data = await response.json();
-            box.innerText = JSON.stringify(data, null, 2);
-        } catch (e) {
-            box.innerText = "Error operativo: No se pudo contactar al centro de control (Backend).";
-        }
-    }
-
-    // 3. Envío para DFS
-    async function optimizarViaje() {
-        const payload = {
-            origin: document.getElementById('optOrigin').value.toUpperCase().trim(),
-            budget: document.getElementById('optBudget').value,
-            limit: document.getElementById('optLimit').value
-        };
-        const box = document.getElementById('resultOptimizar');
-        box.innerText = "Ejecutando simulación DFS con Backtracking combinando las 3 aeronaves...";
-
-        try {
-            const response = await fetch(`${SERVER_URL}/api/optimize`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            const data = await response.json();
-            box.innerText = JSON.stringify(data, null, 2);
-        } catch (e) {
-            box.innerText = "Error operativo: Falla en la respuesta del motor de optimización.";
-        }
-    }
-</script>
+<script src="{{ url_for('static', filename='Script.js') }}"></script>
 </body>
 </html>

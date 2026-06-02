@@ -2,19 +2,21 @@ from flask import Flask, request, jsonify , render_template
 from Classes.Nucleus.Graph import Graph
 from Classes.RouteEngine.RoutePlanner import RoutePlanner
 from Classes.Services.InterruptionsService import Interruptions
+from Classes.Traveler_Logic.Traveler import Traveler
 
 app = Flask(__name__)
 
 graph = Graph()
 planner = RoutePlanner()
 interruptionService = Interruptions()
+travelers = []
 
 @app.route("/")
 def home():
     return render_template ("index.html")
 
 @app.route('/api/calculateRoute', methods=['POST'])
-def apiCalculateRoute():
+async def apiCalculateRoute():
     data = request.get_json()
     origin_iata = data.get('origin')
     destination_iata = data.get('destination')
@@ -36,7 +38,7 @@ def apiCalculateRoute():
     })
 
 @app.route('/api/BlockedRoute', methods=['POST'])
-def apiBlockedRoute():
+async def apiBlockedRoute():
     data = request.get_json()
     originBlocked = data.get('originBlocked')
     destinationBlocked = data.get('destinationBlocked')
@@ -52,13 +54,20 @@ def apiBlockedRoute():
     return jsonify(result)
 
 @app.route('/api/optimize', methods=['POST'])
-def apiOptimize():
+async def apiOptimize():
     data = request.get_json()
     airport_origin = data.get('origin')
     maximum_budget = float(data.get('budget'))
     limit = data.get('limit')
     result = planner.maximumOptimization(graph, airport_origin, maximum_budget, limit)
     return jsonify(result)
+
+@app.route ("/api/traveler" , methods= ["POST"])
+async def CreateTraveler ():
+    data = request.get_json
+    travelers.append (Traveler (data.get("Budget") , data.get("timeAvailable")))
+    return jsonify ({"request" : "ok, the traveler had benn created in the system..."})
+
 
 if __name__ == '__main__':
     app.run(debug=True)

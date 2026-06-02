@@ -1,0 +1,15 @@
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f4f6f9; color: #333; }
+        h1 { color: #2c3e50; text-align: center; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .section { background: white; padding: 25px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        h2 { color: #2980b9; margin-top: 0; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; color: #555; }
+        input, select, button { padding: 10px; width: 100%; max-width: 400px; display: block; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; box-sizing: border-box; }
+        button { background-color: #27ae60; color: white; cursor: pointer; border: none; font-weight: bold; margin-top: 15px; transition: background 0.2s; }
+        button:hover { background-color: #219653; }
+        .btn-blue { background-color: #2980b9; }
+        .btn-blue:hover { background-color: #2471a3; }
+        .btn-red { background-color: #c0392b; }
+        .btn-red:hover { background-color: #a93226; }
+        .result { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 6px; margin-top: 15px; white-space: pre-wrap; font-family: 'Courier New', Courier, monospace; font-size: 13px; max-height: 250px; overflow-y: auto; }

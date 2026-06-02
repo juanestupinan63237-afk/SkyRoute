@@ -18,6 +18,9 @@ class Traveler:
         if self.activeUser:
             self.timeSinceLastMeal += pastHours
             self.timeSinceLastAccommodation += pastHours
+            self.timeAvailable -= pastHours
+        if self.timeAvailable <= 0:
+            self.activeUser = False
 
     def DescountToFood (self , cost):
         if self.activeUser:

@@ -23,7 +23,7 @@ async def DescountTime ():
     for traveler in travelers:
         temp_airport = graph.getAirportPerCode (traveler.actualAirportId)
         traveler.pastTime (time)
-        traveler.descountToFood (temp_airport.foodCost)
+        traveler.DescountToFood (temp_airport.foodCost)
         traveler.descountToAcommodation (temp_airport.accommodationCost)
 
 @app.route('/api/calculateRoute', methods=['POST'])

@@ -33,3 +33,10 @@ class Traveler:
             if self.timeSinceLastAccommodation >= 20:
                 self.timeSinceLastAccommodation = 0 
                 self.restantBudget -= cost
+
+    def isActiveToWork (self):
+        if self.activeUser:
+            percent_of_budget = (self.budget / self.restantBudget) * 100
+            if percent_of_budget <= 25:
+                return True
+        return False

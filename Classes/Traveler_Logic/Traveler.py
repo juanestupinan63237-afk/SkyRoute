@@ -59,7 +59,7 @@ class Traveler:
                             if i.isImportant:
                                 temp = TemporalActivity (i.id , i.duration , i.name, i.duration , i.price )
                                 self.activities.append (temp)
-                                self.restantActivities.append (temp)
+                                self.restantActivities.insert(0, temp)
                     self.visitedAirports.append (self.actualAirportId)
             elif type (self.restantActivities[0]) == TemporalActivity:
                 self.restantActivities[0].DescountHours (pastHours)

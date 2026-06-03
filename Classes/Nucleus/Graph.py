@@ -3,7 +3,7 @@ from Classes.Nucleus.Route import Route
 class Graph:
     def __init__(self):
         self.airports: list[Airport] = []
-        self.routes = []
+        self.routes: list[Route] = []
 
     def insertAirports(self, airport : Airport):
         if airport not in self.airports:
@@ -13,6 +13,12 @@ class Graph:
         route = Route(origin, destination, time, aircraft, distance, basePrice, minStay)
         self.routes.append(route)
         origin.insertAdjacencies(route)
+
+    def getRoute (self , origin , final):
+        for i in self.routes:
+            if i.origin == origin and i.destination == final:
+                return i
+        raise Exception ("Donf found this route...")
 
     def validateExistence(self, iataId):
         isIata = False

@@ -29,7 +29,7 @@ class Traveler:
         final = self.history.visitedDestinations [0]
         for i in range (0 , len(self.history.visitedDestinations)-1):
             route = graph.getRoute (initial , final)
-            if self.restantBudget <= route.basePrice:
+            if self.restantBudget <= (route.basePrice + route.aircraft.calculateCost(route.distance)):
                 self.activeUser = False
                 raise Exception ("This traveler don´t have many money to buy this ticket...")
             self.restantActivities.append (ActiveFly (initial , final , route.time , route.time))

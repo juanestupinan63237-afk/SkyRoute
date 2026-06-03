@@ -106,6 +106,7 @@ class Traveler:
                 for i, act in enumerate(self.restantActivities):
                     if not isinstance(act, ActiveFly):
                         idx += 1
+                        break
                 self.restantActivities.insert (idx , new_activity)
                 self.activities.append (new_activity)
             else:

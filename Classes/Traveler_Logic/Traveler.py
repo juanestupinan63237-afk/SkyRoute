@@ -101,7 +101,7 @@ class Traveler:
                 if activity.maxHours < apliccation_hours:
                     raise Exception(f"Max hours for this job is {activity.maxHours}")
                 new_activity = TemporalJob (apliccation_hours , activity.hourlyRate , activity.jobId)
-                self.restantBudget += activity.getTotalPay ()
+                self.restantBudget += new_activity.getTotalPay ()
                 idx = 0
                 for i, act in enumerate(self.restantActivities):
                     if not isinstance(act, ActiveFly):

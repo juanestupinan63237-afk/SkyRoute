@@ -6,6 +6,7 @@ from Classes.Domain.TemporalJob import TemporalJob
 from Classes.Nucleus.Graph import Graph
 from Classes.Domain.ActivityUser import Activity
 from Classes.Nucleus.Route import Route
+from Classes.Domain.Job import Job
 class Traveler:
     def __init__(self, budget,timeAvailable , actualAirportId , timeSinceLastMeal = 0 , timeSinceLastAccommodation = 0, history = None , activeUser = True , activities = [] , restantActivities=[]):
         self.budget = budget
@@ -18,6 +19,7 @@ class Traveler:
         self.actualAirportId = actualAirportId
         self.activities:list = activities
         self.restantActivities : list= restantActivities
+        self.visitedAirports = []
 
     def CreateItineraryPerCriterion (self ,graph ,criterion , origin , destination , allowedAircraft = None):
         self.history = RoutePlanner().calculateRoute (graph , origin , destination , criterion , allowedAircraft)
@@ -25,13 +27,15 @@ class Traveler:
     def AddAllItineraryTravels (self , graph: Graph):
         initial = self.actualAirportId
         final = self.history.visitedDestinations [0]
-        for i in range (0 , len(self.history.visitedDestinations)):
+        for i in range (0 , len(self.history.visitedDestinations)-1):
             route = graph.getRoute (initial , final)
             if self.restantBudget <= route.basePrice:
                 self.activeUser = False
                 raise Exception ("This traveler don´t have many money to buy this ticket...")
             self.restantActivities.append (ActiveFly (initial , final , route.time , route.time))
             self.restantBudget -= route.basePrice
+            initial = route.destination
+            final = self.history.visitedDestinations [i+1]
 
 
     def pastTime (self , pastHours: int , graph: Graph):
@@ -50,12 +54,13 @@ class Traveler:
                     self.actualAirportId = self.restantActivities[0].final
                     self.PopActualActivity ()
                     activities_of_add = graph.getAirportPerCode (self.actualAirportId).activities
-                    for i in self.activities_of_add:
+                    for i in activities_of_add:
                         if type (i) == Activity:
                             if i.isImportant:
                                 temp = TemporalActivity (i.id , i.duration , i.name, i.duration , i.price )
                                 self.activities.append (temp)
                                 self.restantActivities.append (temp)
+                    self.visitedAirports.append (self.actualAirportId)
             elif type (self.restantActivities[0]) == TemporalActivity:
                 self.restantActivities[0].DescountHours (pastHours)
                 if self.restantActivities[0].hours <= 0:
@@ -90,23 +95,27 @@ class Traveler:
     def PopActualActivity (self):
         self.restantActivities.remove (self.restantActivities[0])
 
-    def AddActivitie (self , activity):
-        if type (activity) == TemporalJob:
+    def AddActivitie (self , activity , apliccation_hours):
+        if type (activity) == Job:
             if self.isActiveToWork ():
+                if activity.maxHours < apliccation_hours:
+                    raise Exception(f"Max hours for this job is {activity.maxHours}")
+                new_activity = TemporalJob (apliccation_hours , activity.hourlyRate , activity.jobId)
                 self.restantBudget += activity.getTotalPay ()
                 idx = 0
                 for i, act in enumerate(self.restantActivities):
                     if not isinstance(act, ActiveFly):
                         idx += 1
-                self.restantActivities.insert (idx , activity)
-                self.activities.append (activity)
+                self.restantActivities.insert (idx , new_activity)
+                self.activities.append (new_activity)
             else:
                 raise Exception ("the traveler don´t have a permise to work in this moment...")
-        elif type (activity) == TemporalActivity:
-            self.restantBudget -= activity.price
+        elif type (activity) == Activity:
+            new_activity = TemporalActivity (activity.id , activity.duration , activity.name , activity.duration , activity.price)
+            self.restantBudget -= new_activity.price
             idx = 0
             for i, act in enumerate(self.restantActivities):
                 if not isinstance(act, ActiveFly):
                     idx += 1
-            self.restantActivities.insert (idx , activity)
-            self.activities.append (activity)
+            self.restantActivities.insert (idx , new_activity)
+            self.activities.append (new_activity)

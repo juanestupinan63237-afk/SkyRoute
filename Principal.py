@@ -15,7 +15,7 @@ travelers.append (Traveler (0 , "ewhf" , 10000 , 1000 , None) )
 
 @app.route("/")
 def home():
-    return render_template ("index.html")
+    return render_template ("home.html")
 
 @app.route ("/traveler/descountTime")
 async def DescountTime ():

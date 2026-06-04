@@ -5,7 +5,6 @@ from Classes.Domain.TemporalActivity import TemporalActivity
 from Classes.Domain.TemporalJob import TemporalJob
 from Classes.Nucleus.Graph import Graph
 from Classes.Domain.ActivityUser import Activity
-from Classes.Nucleus.Route import Route
 from Classes.Domain.Job import Job
 class Traveler:
     def __init__(self, budget,timeAvailable , actualAirportId , timeSinceLastMeal = 0 , timeSinceLastAccommodation = 0, history = None , activeUser = True , activities = [] , restantActivities=[]):
@@ -47,7 +46,7 @@ class Traveler:
             self.timeSinceLastAccommodation += pastHours
             self.timeAvailable -= pastHours
             if len(self.restantActivities) == 0:
-                return 
+                return
             if type (self.restantActivities[0]) == ActiveFly:
                 self.restantActivities[0].DescountHours (pastHours)
                 if self.restantActivities[0].restantHours <= 0:
@@ -82,7 +81,7 @@ class Traveler:
     def descountToAcommodation (self , cost):
         if self.activeUser:
             if self.timeSinceLastAccommodation >= 20:
-                self.timeSinceLastAccommodation = 0 
+                self.timeSinceLastAccommodation = 0
                 self.restantBudget -= cost
 
     def isActiveToWork (self):
@@ -91,7 +90,7 @@ class Traveler:
             if percent_of_budget <= 35:
                 return True
         return False
-    
+
     def PopActualActivity (self):
         self.restantActivities.remove (self.restantActivities[0])
 

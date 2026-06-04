@@ -34,7 +34,7 @@ class Traveler:
                 self.activeUser = False
                 raise Exception ("This traveler don´t have many money to buy this ticket...")
             self.restantActivities.append (ActiveFly (initial , final , route.time , route.time))
-            self.restantBudget -= route.basePrice
+            self.restantBudget -= route.basePrice + route.aircraft.calculateCost(route.distance)
             initial = route.destination
             final = self.history.visitedDestinations [i+1]
 
@@ -103,12 +103,11 @@ class Traveler:
                     raise Exception(f"Max hours for this job is {activity.maxHours}")
                 new_activity = TemporalJob (apliccation_hours , activity.hourlyRate , activity.jobId)
                 self.restantBudget += new_activity.getTotalPay ()
-                idx = 0
-                for i, act in enumerate(self.restantActivities):
-                    if not isinstance(act, ActiveFly):
-                        idx += 1
-                    else:
-                        break
+            idx = len(self.restantActivities)  
+            for i, act in enumerate(self.restantActivities):
+                if isinstance(act, ActiveFly):
+                    idx = i  
+                    break
                 self.restantActivities.insert (idx , new_activity)
                 self.activities.append (new_activity)
             else:
@@ -116,9 +115,11 @@ class Traveler:
         elif type (activity) == Activity:
             new_activity = TemporalActivity (activity.id , activity.duration , activity.name , activity.duration , activity.price)
             self.restantBudget -= new_activity.price
-            idx = 0
+            idx = len(self.restantActivities)  
             for i, act in enumerate(self.restantActivities):
-                if not isinstance(act, ActiveFly):
-                    idx += 1
+                if isinstance(act, ActiveFly):
+                    idx = i  
+                    break
+            self.restantActivities.insert(idx, new_activity)
             self.restantActivities.insert (idx , new_activity)
             self.activities.append (new_activity)

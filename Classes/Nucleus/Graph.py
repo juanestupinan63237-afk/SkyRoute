@@ -14,7 +14,7 @@ class Graph:
         self.routes.append(route)
         origin.insertAdjacencies(route)
 
-    def getRoute (self , origin , final):
+    def getRoute (self , origin: str, final : str):
         for i in self.routes:
             if i.origin == origin and i.destination == final:
                 return i

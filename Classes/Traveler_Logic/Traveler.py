@@ -7,8 +7,10 @@ from Classes.Nucleus.Graph import Graph
 from Classes.Domain.ActivityUser import Activity
 from Classes.Domain.Job import Job
 class Traveler:
-    def __init__(self, budget,timeAvailable , actualAirportId , timeSinceLastMeal = 0 , timeSinceLastAccommodation = 0, history = None , activeUser = True , activities = [] , restantActivities=[]):
+    def __init__(self, id , name ,budget,timeAvailable , actualAirportId , timeSinceLastMeal = 0 , timeSinceLastAccommodation = 0, history = None , activeUser = True , activities = [] , restantActivities=[]):
         self.budget = budget
+        self.name = name
+        self.id = id
         self.restantBudget = budget
         self.timeAvailable = timeAvailable
         self.history : Itinerary = history

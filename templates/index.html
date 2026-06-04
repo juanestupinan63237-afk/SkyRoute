@@ -80,7 +80,9 @@
         <div id="resultOptimizar" class="result">Esperando parámetros de optimización...</div>
     </div>
 </div>
-
+<input id = "Id_Traveler_Search" type = "number" placeholder="Id del viajero"> </input>
+<button onclick = "getTraveler()">Por id</button>
+<div id = "resultTraveler" class="result">Esperando consulta de viajero...</div>
 <script src="{{ url_for('static', filename='Script.js') }}"></script>
 </body>
 </html>

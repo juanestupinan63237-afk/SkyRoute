@@ -11,6 +11,7 @@ planner = RoutePlanner()
 interruptionService = Interruptions()
 travelers:list[Traveler] = []
 temporalTravels = []
+travelers.append (Traveler (0 , "ewhf" , 10000 , 1000 , None) )
 
 @app.route("/")
 def home():
@@ -78,6 +79,16 @@ async def CreateTraveler ():
     data = request.get_json
     travelers.append (Traveler (data.get("Budget") , data.get("timeAvailable") , data.get("actualAirportId")))
     return jsonify ({"request" : "ok, the traveler had benn created in the system..."})
+
+@app.route ("/traveler/get" , methods = ["POST"])
+async def getTraveler ():
+    data = request.get_json ()
+    temp = None
+    for i in travelers: 
+        if data.get ("id") == i.id:
+            temp = i
+    return jsonify ({"name" : temp.name,
+                     "id" : id})
 
 
 if __name__ == '__main__':

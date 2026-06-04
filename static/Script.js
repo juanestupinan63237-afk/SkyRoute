@@ -67,3 +67,15 @@
             box.innerText = "Error operativo: Falla en la respuesta del motor de optimización.";
         }
     }
+
+    async function getTraveler() {
+        let id = document.getElementById ("Id_Traveler_Search").value;
+        const response = await fetch ("/traveler/get" , 
+            {
+                method = "POST",
+                headers =  {'Content-Type': 'application/json'},
+                body = {"id" : id}
+            }
+        );
+        document.getElementById ("resultTraveler").innerText = await response.json();
+    }

@@ -34,3 +34,22 @@ class ReportService:
                 })
         return report
 
+def build_traveler_summary(self,traveler: Traveler)-> dict:
+         total_spent = traveler.budget - traveler.restantBudget
+         total_earned= self.calculate_total_earned(traveler)
+         balance = traveler.restantBudget
+        
+         return {
+             "name": getattr(traveler, "name", "viajero"),
+             "initial_budget": round(traveler.budget, 2),
+             "total_spent": round(total_spent, 2),
+             "total_earned": round(total_earned, 2),
+             "finalbalance": round(balance, 2),
+             "totalTimeHours": round(
+                  getattr(travler, "elapsed_hours",
+                          traveler.budget/max(traveler.budget, 1)), 2
+             ), 
+    }
+        
+    
+

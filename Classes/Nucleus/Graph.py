@@ -16,7 +16,7 @@ class Graph:
 
     def getRoute (self , origin: str, final : str):
         for i in self.routes:
-            if i.origin == origin and i.destination == final:
+            if i.origin.iataId == origin and i.destination.iataId == final:
                 return i
         raise Exception ("Donf found this route...")
 

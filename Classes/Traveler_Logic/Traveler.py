@@ -35,7 +35,7 @@ class Traveler:
                 raise Exception ("This traveler don´t have many money to buy this ticket...")
             self.restantActivities.append (ActiveFly (initial , final , route.time , route.time))
             self.restantBudget -= route.basePrice + route.aircraft.calculateCost(route.distance)
-            initial = route.destination
+            initial = route.destination.iataId
             final = self.history.visitedDestinations [i+1]
 
 
@@ -97,21 +97,21 @@ class Traveler:
         self.restantActivities.remove (self.restantActivities[0])
 
     def AddActivitie (self , activity , apliccation_hours):
-        if type (activity) == Job:
-            if self.isActiveToWork ():
+        if type(activity) == Job:
+            if self.isActiveToWork():
                 if activity.maxHours < apliccation_hours:
                     raise Exception(f"Max hours for this job is {activity.maxHours}")
-                new_activity = TemporalJob (apliccation_hours , activity.hourlyRate , activity.jobId)
-                self.restantBudget += new_activity.getTotalPay ()
-            idx = len(self.restantActivities)  
-            for i, act in enumerate(self.restantActivities):
-                if isinstance(act, ActiveFly):
-                    idx = i  
-                    break
-                self.restantActivities.insert (idx , new_activity)
-                self.activities.append (new_activity)
-            else:
-                raise Exception ("the traveler don´t have a permise to work in this moment...")
+                new_activity = TemporalJob(apliccation_hours, activity.hourlyRate, activity.jobId)
+                self.restantBudget += new_activity.getTotalPay()
+                idx = len(self.restantActivities)
+                for i, act in enumerate(self.restantActivities):
+                    if isinstance(act, ActiveFly):
+                        idx = i
+                        break
+                self.restantActivities.insert(idx, new_activity)  # fuera del for
+                self.activities.append(new_activity)              # fuera del for
+            else:                                                  # else del if isActiveToWork
+                raise Exception("the traveler doesn't have permission to work right now...")
         elif type (activity) == Activity:
             new_activity = TemporalActivity (activity.id , activity.duration , activity.name , activity.duration , activity.price)
             self.restantBudget -= new_activity.price
@@ -120,6 +120,5 @@ class Traveler:
                 if isinstance(act, ActiveFly):
                     idx = i  
                     break
-            self.restantActivities.insert(idx, new_activity)
             self.restantActivities.insert (idx , new_activity)
             self.activities.append (new_activity)

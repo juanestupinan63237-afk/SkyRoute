@@ -11,7 +11,6 @@ planner = RoutePlanner()
 interruptionService = Interruptions()
 travelers:list[Traveler] = []
 temporalTravels = []
-travelers.append (Traveler (0 , "ewhf" , 10000 , 1000 , None) )
 
 @app.route("/")
 def home():

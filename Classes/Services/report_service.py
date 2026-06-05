@@ -1,3 +1,4 @@
+from Classes.Nucleus.AirportVertex import Airport
 from Classes.Traveler_Logic.Traveler import Traveler
 from Classes.Nucleus.Graph import Graph
 from Classes.Domain.ActiveFly import ActiveFly
@@ -46,7 +47,7 @@ def build_traveler_summary(self,traveler: Traveler)-> dict:
              "total_earned": round(total_earned, 2),
              "finalbalance": round(balance, 2),
              "totalTimeHours": round(
-                  getattr(travler, "elapsed_hours",
+                  getattr(traveler, "elapsed_hours",
                           traveler.budget/max(traveler.budget, 1)), 2
              ), 
     }
@@ -57,7 +58,31 @@ def calculate_total_earned(self, traveler: Traveler) -> float:
             if isinstance(activity, TemporalJob):
                 total_earned += activity.getTotalPay()
         return total_earned
-        
-        
+
+def _build_destination(self, traveler: Traveler, graph: Graph) -> list:
+     destinatios = []
+     for iata_code in traveler.visitedAirports:
+        try:
+            airport: Airport = graph.getAirportPerCode(iata_code)
+        except Exception:
+             continue
+        cost_at_destination = self.calculate_cost_at_destination(traveler, iata_code, airport)
+        destinatios.append({
+            "iata_code": airport.iataId,
+            "name": airport.name,
+            "city": airport.city,
+            "country": airport.country,
+            "isHub": airport.isHub,
+            "stayMinutes": self.
+            _stay_minutes(traveler, iata_code),
+                  "totalCostDestination": round(cost_at_destination, 2)
+                       
+                        })
+        return destinatios
+     
+            
+
+
+
     
 

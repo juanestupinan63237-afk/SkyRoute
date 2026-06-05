@@ -50,6 +50,14 @@ def build_traveler_summary(self,traveler: Traveler)-> dict:
                           traveler.budget/max(traveler.budget, 1)), 2
              ), 
     }
+
+def calculate_total_earned(self, traveler: Traveler) -> float:
+        total_earned = 0.0
+        for activity in traveler.activities:
+            if isinstance(activity, TemporalJob):
+                total_earned += activity.getTotalPay()
+        return total_earned
+        
         
     
 

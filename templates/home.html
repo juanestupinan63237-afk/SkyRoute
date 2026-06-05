@@ -19,9 +19,9 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--bg-primary); 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
             color: var(--text-main);
             padding: 20px;
             display: flex;
@@ -222,9 +222,7 @@
     </header>
 
     <div class="dashboard-grid">
-        
         <div class="control-side">
-            
             <div class="card">
                 <h2>1. Registrar Viajero en Simulación</h2>
                 <div class="form-group">
@@ -291,7 +289,6 @@
         </div>
 
         <div class="visual-side">
-            
             <div class="card">
                 <h2>Visualización de Nodos de la Red Aérea</h2>
                 <div id="Graph_visualization" class="Graph">
@@ -342,7 +339,6 @@
                 { iataId: "MDE", name: "J. M. Córdova", city: "Medellín", isHub: false, acc: 40, food: 10 },
                 { iataId: "LIM", name: "Jorge Chávez", city: "Lima", isHub: true, acc: 45, food: 12 }
             ];
-            
             const container = document.getElementById('Graph_visualization');
             container.innerHTML = '';
             mockAirports.forEach(a => {
@@ -377,7 +373,6 @@
                 });
                 const data = await response.json();
                 logger(`Viajero instanciado correctamente en backend en nodo: ${actualAirportId}`, "success");
-                
                 // Actualizar la sección #Itinerary con los valores iniciales del objeto
                 renderizarViajeroDOM(budget, budget, timeAvailable, actualAirportId, 0, 0, true, []);
             } catch (error) {
@@ -394,9 +389,8 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ time: hours })
                 });
-                
+
                 logger(`Se procesaron +${hours} horas en el motor de simulación.`);
-                
                 // Aquí llamamos una actualización de estado simulada en el cliente.
                 // En un flujo real, tu endpoint de tiempo debería retornar los datos mutados del viajero actual.
                 simularPasoTiempoCliente(hours);
@@ -420,7 +414,6 @@
                     body: JSON.stringify({ origin: origin, destination: destination, criterion: criterion })
                 });
                 const data = await response.json();
-                
                 if(data.success) {
                     logger(`Ruta calculada con éxito: ${JSON.stringify(data.route)}`, "success");
                     // Inyectar reporte en el contenedor #Itinerary o #Report
@@ -490,7 +483,6 @@
 
         function renderizarViajeroDOM(budget, restantBudget, timeAvailable, actualAirportId, mealTime, accTime, isActive, activities) {
             localTravelerState = { budget, restantBudget, timeAvailable, actualAirportId, mealTime, accTime, isActive };
-            
             // Lógica matemática de porcentajes de barras de estado biológicas según las reglas de tu Traveler.py
             const mealPercent = Math.max(0, 100 - (mealTime / 8 * 100)); // Hambre: se resetea a las 8 horas
             const accPercent = Math.max(0, 100 - (accTime / 20 * 100));   // Sueño: se resetea a las 20 horas

@@ -60,14 +60,14 @@ def calculate_total_earned(self, traveler: Traveler) -> float:
         return total_earned
 
 def _build_destination(self, traveler: Traveler, graph: Graph) -> list:
-     destinatios = []
+     destinations = []
      for iata_code in traveler.visitedAirports:
         try:
             airport: Airport = graph.getAirportPerCode(iata_code)
         except Exception:
              continue
         cost_at_destination = self.calculate_cost_at_destination(traveler, iata_code, airport)
-        destinatios.append({
+        destinations.append({
             "iata_code": airport.iataId,
             "name": airport.name,
             "city": airport.city,
@@ -78,8 +78,20 @@ def _build_destination(self, traveler: Traveler, graph: Graph) -> list:
                   "totalCostDestination": round(cost_at_destination, 2)
                        
                         })
-        return destinatios
-     
+        return destinations
+
+def _cost_at_destination(self, traveler: Traveler, iata_code: str, airport: Airport) -> float:
+        total_cost = 0.0
+        for activity in traveler.activities:
+            if isinstance(activity, TemporalActivity):
+                 cost += getattr(activity, "price", 0.0)
+            return total_cost
+def _stay_minutes(self, traveler: Traveler, iata_code: str) -> int:
+        total_activity_minutes = 0
+        for activity in traveler.activities:
+            if isinstance(activity, TemporalActivity):
+                total_activy_minutes += getattr(activity, "duration", 0)
+        return total_activity_minutes 
             
 
 

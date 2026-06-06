@@ -43,7 +43,7 @@ class SimulationEngine:
             "timeSinceLastAccommodation": traveler.timeSinceLastAccommodation,
             "activeUser": traveler.activeUser,
             "visitedAirports": traveler.visitedAirports,
-            "currentFlight": traveler.currentFlight # Persistimos el estado del vuelo en tránsito
+            "currentFlight": traveler.currentFlight 
         }
         with open(self.jsonPath, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4, ensure_ascii=False)

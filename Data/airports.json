@@ -1,0 +1,456 @@
+{
+  "airport": [
+    {
+      "iataId": "BOG", "name": "El Dorado International Airport", "city": "Bogotá", "country": "Colombia",
+      "isHub": true, "accommodationCost": 45, "foodCost": 12,
+      "activity": [
+        {"name": "City Tour Bogotá", "type": "cultural", "duration": 180, "price": 25, "isImportant": false},
+        {"name": "Gold Museum Visit", "type": "cultural", "duration": 120, "price": 15, "isImportant": true},
+        {"name": "Monserrate Hike", "type": "outdoor", "duration": 240, "price": 10, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J001", "nameJob": "Baggage Handler", "hourlyRate": 8, "maxHours": 8},
+        {"jobId": "J002", "nameJob": "Airport Guide", "hourlyRate": 10, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "MDE", "name": "José María Córdova International Airport", "city": "Medellín", "country": "Colombia",
+      "isHub": true, "accommodationCost": 40, "foodCost": 10,
+      "activity": [
+        {"name": "Pablo Escobar Tour", "type": "cultural", "duration": 150, "price": 20, "isImportant": false},
+        {"name": "Botanical Garden", "type": "outdoor", "duration": 90, "price": 5, "isImportant": true},
+        {"name": "Cable Car Ride", "type": "transport", "duration": 60, "price": 8, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J003", "nameJob": "Ramp Assistant", "hourlyRate": 7, "maxHours": 8},
+        {"jobId": "J004", "nameJob": "Cleaning Staff", "hourlyRate": 6, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "CLO", "name": "Alfonso Bonilla Aragón International Airport", "city": "Cali", "country": "Colombia",
+      "isHub": false, "accommodationCost": 35, "foodCost": 9,
+      "activity": [
+        {"name": "Salsa Dance Class", "type": "cultural", "duration": 120, "price": 18, "isImportant": true},
+        {"name": "Zoo Visit", "type": "outdoor", "duration": 180, "price": 12, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J005", "nameJob": "Baggage Handler", "hourlyRate": 7, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "CTG", "name": "Rafael Núñez International Airport", "city": "Cartagena", "country": "Colombia",
+      "isHub": false, "accommodationCost": 55, "foodCost": 14,
+      "activity": [
+        {"name": "Walled City Tour", "type": "cultural", "duration": 180, "price": 22, "isImportant": true},
+        {"name": "Beach Day", "type": "outdoor", "duration": 300, "price": 8, "isImportant": false},
+        {"name": "Boat to Islas del Rosario", "type": "outdoor", "duration": 480, "price": 45, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J006", "nameJob": "Tourist Guide", "hourlyRate": 12, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "LIM", "name": "Jorge Chávez International Airport", "city": "Lima", "country": "Perú",
+      "isHub": true, "accommodationCost": 50, "foodCost": 13,
+      "activity": [
+        {"name": "Miraflores Tour", "type": "cultural", "duration": 150, "price": 20, "isImportant": false},
+        {"name": "Larco Museum", "type": "cultural", "duration": 120, "price": 16, "isImportant": true},
+        {"name": "Lima Food Tour", "type": "cultural", "duration": 180, "price": 35, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J007", "nameJob": "Baggage Handler", "hourlyRate": 9, "maxHours": 8},
+        {"jobId": "J008", "nameJob": "Airport Guide", "hourlyRate": 11, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "GRU", "name": "São Paulo–Guarulhos International Airport", "city": "São Paulo", "country": "Brazil",
+      "isHub": true, "accommodationCost": 60, "foodCost": 15,
+      "activity": [
+        {"name": "Ibirapuera Park", "type": "outdoor", "duration": 120, "price": 0, "isImportant": false},
+        {"name": "São Paulo Museum of Art", "type": "cultural", "duration": 150, "price": 18, "isImportant": true},
+        {"name": "Vila Madalena Graffiti Tour", "type": "cultural", "duration": 120, "price": 22, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J009", "nameJob": "Ramp Assistant", "hourlyRate": 12, "maxHours": 8},
+        {"jobId": "J010", "nameJob": "Cargo Handler", "hourlyRate": 10, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "GIG", "name": "Rio de Janeiro–Galeão International Airport", "city": "Rio de Janeiro", "country": "Brazil",
+      "isHub": true, "accommodationCost": 65, "foodCost": 16,
+      "activity": [
+        {"name": "Christ the Redeemer Visit", "type": "cultural", "duration": 180, "price": 30, "isImportant": true},
+        {"name": "Copacabana Beach", "type": "outdoor", "duration": 240, "price": 0, "isImportant": false},
+        {"name": "Sugarloaf Mountain", "type": "outdoor", "duration": 180, "price": 25, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J011", "nameJob": "Airport Guide", "hourlyRate": 13, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "EZE", "name": "Ministro Pistarini International Airport", "city": "Buenos Aires", "country": "Argentina",
+      "isHub": true, "accommodationCost": 55, "foodCost": 14,
+      "activity": [
+        {"name": "La Boca Tour", "type": "cultural", "duration": 150, "price": 18, "isImportant": false},
+        {"name": "Tango Show", "type": "cultural", "duration": 120, "price": 40, "isImportant": true},
+        {"name": "Recoleta Cemetery", "type": "cultural", "duration": 90, "price": 0, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J012", "nameJob": "Baggage Handler", "hourlyRate": 10, "maxHours": 8},
+        {"jobId": "J013", "nameJob": "Cleaning Staff", "hourlyRate": 8, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "SCL", "name": "Arturo Merino Benítez International Airport", "city": "Santiago", "country": "Chile",
+      "isHub": true, "accommodationCost": 58, "foodCost": 13,
+      "activity": [
+        {"name": "San Cristóbal Hill", "type": "outdoor", "duration": 180, "price": 5, "isImportant": true},
+        {"name": "Pablo Neruda House", "type": "cultural", "duration": 120, "price": 12, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J014", "nameJob": "Ramp Assistant", "hourlyRate": 11, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "UIO", "name": "Mariscal Sucre International Airport", "city": "Quito", "country": "Ecuador",
+      "isHub": true, "accommodationCost": 42, "foodCost": 10,
+      "activity": [
+        {"name": "Historic Center Tour", "type": "cultural", "duration": 180, "price": 15, "isImportant": true},
+        {"name": "Mitad del Mundo", "type": "cultural", "duration": 120, "price": 10, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J015", "nameJob": "Airport Guide", "hourlyRate": 9, "maxHours": 6},
+        {"jobId": "J016", "nameJob": "Baggage Handler", "hourlyRate": 7, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "CCS", "name": "Simón Bolívar International Airport", "city": "Caracas", "country": "Venezuela",
+      "isHub": false, "accommodationCost": 30, "foodCost": 8,
+      "activity": [
+        {"name": "Ávila National Park", "type": "outdoor", "duration": 300, "price": 5, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J017", "nameJob": "Cleaning Staff", "hourlyRate": 6, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "ASU", "name": "Silvio Pettirossi International Airport", "city": "Asunción", "country": "Paraguay",
+      "isHub": false, "accommodationCost": 35, "foodCost": 9,
+      "activity": [
+        {"name": "Palacio de Gobierno Tour", "type": "cultural", "duration": 90, "price": 5, "isImportant": true}
+      ],
+      "job": [
+        {"jobId": "J018", "nameJob": "Baggage Handler", "hourlyRate": 6, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "MVD", "name": "Carrasco International Airport", "city": "Montevideo", "country": "Uruguay",
+      "isHub": false, "accommodationCost": 50, "foodCost": 12,
+      "activity": [
+        {"name": "Ciudad Vieja Tour", "type": "cultural", "duration": 120, "price": 10, "isImportant": true},
+        {"name": "Montevideo Market", "type": "cultural", "duration": 90, "price": 5, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J019", "nameJob": "Airport Guide", "hourlyRate": 10, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "LPB", "name": "El Alto International Airport", "city": "La Paz", "country": "Bolivia",
+      "isHub": false, "accommodationCost": 32, "foodCost": 8,
+      "activity": [
+        {"name": "Witch Market Tour", "type": "cultural", "duration": 90, "price": 8, "isImportant": true},
+        {"name": "Moon Valley Visit", "type": "outdoor", "duration": 120, "price": 12, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J020", "nameJob": "Ramp Assistant", "hourlyRate": 6, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "GYE", "name": "José Joaquín de Olmedo International Airport", "city": "Guayaquil", "country": "Ecuador",
+      "isHub": false, "accommodationCost": 38, "foodCost": 9,
+      "activity": [
+        {"name": "Malecón 2000", "type": "outdoor", "duration": 90, "price": 0, "isImportant": false},
+        {"name": "Parque Histórico", "type": "cultural", "duration": 120, "price": 8, "isImportant": true}
+      ],
+      "job": [
+        {"jobId": "J021", "nameJob": "Cargo Handler", "hourlyRate": 7, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "CUZ", "name": "Alejandro Velasco Astete International Airport", "city": "Cusco", "country": "Perú",
+      "isHub": false, "accommodationCost": 48, "foodCost": 11,
+      "activity": [
+        {"name": "Machu Picchu Day Trip", "type": "cultural", "duration": 600, "price": 75, "isImportant": true},
+        {"name": "Sacsayhuamán Tour", "type": "cultural", "duration": 180, "price": 20, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J022", "nameJob": "Tourist Guide", "hourlyRate": 12, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "MIA", "name": "Miami International Airport", "city": "Miami", "country": "USA",
+      "isHub": true, "accommodationCost": 90, "foodCost": 20,
+      "activity": [
+        {"name": "South Beach Tour", "type": "outdoor", "duration": 180, "price": 0, "isImportant": false},
+        {"name": "Everglades Airboat", "type": "outdoor", "duration": 240, "price": 50, "isImportant": true}
+      ],
+      "job": [
+        {"jobId": "J023", "nameJob": "Baggage Handler", "hourlyRate": 18, "maxHours": 8},
+        {"jobId": "J024", "nameJob": "Cleaning Staff", "hourlyRate": 15, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "MEX", "name": "Benito Juárez International Airport", "city": "Mexico City", "country": "Mexico",
+      "isHub": true, "accommodationCost": 48, "foodCost": 11,
+      "activity": [
+        {"name": "Teotihuacán Pyramids", "type": "cultural", "duration": 360, "price": 18, "isImportant": true},
+        {"name": "Chapultepec Castle", "type": "cultural", "duration": 150, "price": 10, "isImportant": false},
+        {"name": "Xochimilco Trajinera", "type": "outdoor", "duration": 180, "price": 22, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J025", "nameJob": "Ramp Assistant", "hourlyRate": 9, "maxHours": 8},
+        {"jobId": "J026", "nameJob": "Airport Guide", "hourlyRate": 11, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "GDL", "name": "Miguel Hidalgo y Costilla International Airport", "city": "Guadalajara", "country": "Mexico",
+      "isHub": false, "accommodationCost": 40, "foodCost": 10,
+      "activity": [
+        {"name": "Tequila Town Tour", "type": "cultural", "duration": 300, "price": 30, "isImportant": true},
+        {"name": "Guadalajara Cathedral", "type": "cultural", "duration": 60, "price": 0, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J027", "nameJob": "Cargo Handler", "hourlyRate": 8, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "HAV", "name": "José Martí International Airport", "city": "Havana", "country": "Cuba",
+      "isHub": false, "accommodationCost": 45, "foodCost": 10,
+      "activity": [
+        {"name": "Old Havana Walking Tour", "type": "cultural", "duration": 180, "price": 15, "isImportant": true},
+        {"name": "Classic Car Ride", "type": "transport", "duration": 90, "price": 20, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J028", "nameJob": "Cleaning Staff", "hourlyRate": 5, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "PTY", "name": "Tocumen International Airport", "city": "Panama City", "country": "Panama",
+      "isHub": true, "accommodationCost": 52, "foodCost": 13,
+      "activity": [
+        {"name": "Panama Canal Tour", "type": "cultural", "duration": 240, "price": 30, "isImportant": true},
+        {"name": "Casco Viejo Tour", "type": "cultural", "duration": 120, "price": 12, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J029", "nameJob": "Baggage Handler", "hourlyRate": 11, "maxHours": 8},
+        {"jobId": "J030", "nameJob": "Airport Guide", "hourlyRate": 13, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "SJO", "name": "Juan Santamaría International Airport", "city": "San José", "country": "Costa Rica",
+      "isHub": false, "accommodationCost": 48, "foodCost": 11,
+      "activity": [
+        {"name": "Arenal Volcano Tour", "type": "outdoor", "duration": 480, "price": 55, "isImportant": true},
+        {"name": "Manuel Antonio Beach", "type": "outdoor", "duration": 300, "price": 20, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J031", "nameJob": "Tourist Guide", "hourlyRate": 12, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "SAL", "name": "Óscar Arnulfo Romero International Airport", "city": "San Salvador", "country": "El Salvador",
+      "isHub": false, "accommodationCost": 38, "foodCost": 9,
+      "activity": [
+        {"name": "Joya de Cerén Site", "type": "cultural", "duration": 150, "price": 10, "isImportant": true}
+      ],
+      "job": [
+        {"jobId": "J032", "nameJob": "Ramp Assistant", "hourlyRate": 7, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "TGU", "name": "Toncontín International Airport", "city": "Tegucigalpa", "country": "Honduras",
+      "isHub": false, "accommodationCost": 35, "foodCost": 8,
+      "activity": [
+        {"name": "Copán Ruins Day Trip", "type": "cultural", "duration": 480, "price": 35, "isImportant": true}
+      ],
+      "job": [
+        {"jobId": "J033", "nameJob": "Cleaning Staff", "hourlyRate": 6, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "MGA", "name": "Augusto César Sandino International Airport", "city": "Managua", "country": "Nicaragua",
+      "isHub": false, "accommodationCost": 32, "foodCost": 8,
+      "activity": [
+        {"name": "Masaya Volcano Visit", "type": "outdoor", "duration": 240, "price": 15, "isImportant": true}
+      ],
+      "job": [
+        {"jobId": "J034", "nameJob": "Baggage Handler", "hourlyRate": 6, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "SDQ", "name": "Las Américas International Airport", "city": "Santo Domingo", "country": "Dominican Republic",
+      "isHub": false, "accommodationCost": 50, "foodCost": 12,
+      "activity": [
+        {"name": "Colonial Zone Tour", "type": "cultural", "duration": 180, "price": 15, "isImportant": true},
+        {"name": "Bávaro Beach", "type": "outdoor", "duration": 300, "price": 10, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J035", "nameJob": "Airport Guide", "hourlyRate": 10, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "SJU", "name": "Luis Muñoz Marín International Airport", "city": "San Juan", "country": "Puerto Rico",
+      "isHub": false, "accommodationCost": 70, "foodCost": 16,
+      "activity": [
+        {"name": "Old San Juan Tour", "type": "cultural", "duration": 180, "price": 0, "isImportant": true},
+        {"name": "El Yunque Rainforest", "type": "outdoor", "duration": 360, "price": 25, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J036", "nameJob": "Cargo Handler", "hourlyRate": 16, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "BAQ", "name": "Ernesto Cortissoz International Airport", "city": "Barranquilla", "country": "Colombia",
+      "isHub": false, "accommodationCost": 38, "foodCost": 9,
+      "activity": [
+        {"name": "Carnival Museum", "type": "cultural", "duration": 120, "price": 8, "isImportant": true},
+        {"name": "Old City Tour", "type": "cultural", "duration": 90, "price": 5, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J037", "nameJob": "Ramp Assistant", "hourlyRate": 7, "maxHours": 8}
+      ]
+    },
+    {
+      "iataId": "ADZ", "name": "Gustavo Rojas Pinilla International Airport", "city": "San Andrés", "country": "Colombia",
+      "isHub": false, "accommodationCost": 60, "foodCost": 14,
+      "activity": [
+        {"name": "Johnny Cay Boat Trip", "type": "outdoor", "duration": 300, "price": 30, "isImportant": true},
+        {"name": "Diving Session", "type": "outdoor", "duration": 180, "price": 45, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J038", "nameJob": "Tourist Guide", "hourlyRate": 11, "maxHours": 6}
+      ]
+    },
+    {
+      "iataId": "BGA", "name": "Palonegro International Airport", "city": "Bucaramanga", "country": "Colombia",
+      "isHub": false, "accommodationCost": 33, "foodCost": 8,
+      "activity": [
+        {"name": "Chicamocha Canyon", "type": "outdoor", "duration": 360, "price": 20, "isImportant": true},
+        {"name": "Los Yariguíes Hike", "type": "outdoor", "duration": 240, "price": 10, "isImportant": false}
+      ],
+      "job": [
+        {"jobId": "J039", "nameJob": "Cleaning Staff", "hourlyRate": 6, "maxHours": 8}
+      ]
+    }
+  ],
+  "route": [
+    {"origin": "BOG", "destination": "MDE", "time": 50, "distance": 240, "aircraft": "Regional Plane", "basePrice": 60, "minStay": 60},
+    {"origin": "MDE", "destination": "BOG", "time": 50, "distance": 240, "aircraft": "Regional Plane", "basePrice": 60, "minStay": 60},
+    {"origin": "BOG", "destination": "CLO", "time": 55, "distance": 290, "aircraft": "Regional Plane", "basePrice": 65, "minStay": 60},
+    {"origin": "CLO", "destination": "BOG", "time": 55, "distance": 290, "aircraft": "Regional Plane", "basePrice": 65, "minStay": 60},
+    {"origin": "BOG", "destination": "CTG", "time": 70, "distance": 650, "aircraft": "Commercial Airplane", "basePrice": 90, "minStay": 120},
+    {"origin": "CTG", "destination": "BOG", "time": 70, "distance": 650, "aircraft": "Commercial Airplane", "basePrice": 90, "minStay": 120},
+    {"origin": "BOG", "destination": "BAQ", "time": 65, "distance": 590, "aircraft": "Regional Plane", "basePrice": 80, "minStay": 60},
+    {"origin": "BAQ", "destination": "BOG", "time": 65, "distance": 590, "aircraft": "Regional Plane", "basePrice": 80, "minStay": 60},
+    {"origin": "BOG", "destination": "BGA", "time": 45, "distance": 310, "aircraft": "Regional Plane", "basePrice": 55, "minStay": 60},
+    {"origin": "BGA", "destination": "BOG", "time": 45, "distance": 310, "aircraft": "Regional Plane", "basePrice": 55, "minStay": 60},
+    {"origin": "BOG", "destination": "ADZ", "time": 80, "distance": 720, "aircraft": "Commercial Airplane", "basePrice": 110, "minStay": 120},
+    {"origin": "ADZ", "destination": "BOG", "time": 80, "distance": 720, "aircraft": "Commercial Airplane", "basePrice": 110, "minStay": 120},
+    {"origin": "BOG", "destination": "LIM", "time": 150, "distance": 1900, "aircraft": "Commercial Airplane", "basePrice": 180, "minStay": 120},
+    {"origin": "LIM", "destination": "BOG", "time": 150, "distance": 1900, "aircraft": "Commercial Airplane", "basePrice": 180, "minStay": 120},
+    {"origin": "BOG", "destination": "GRU", "time": 390, "distance": 4650, "aircraft": "Commercial Airplane", "basePrice": 320, "minStay": 180},
+    {"origin": "GRU", "destination": "BOG", "time": 390, "distance": 4650, "aircraft": "Commercial Airplane", "basePrice": 320, "minStay": 180},
+    {"origin": "BOG", "destination": "PTY", "time": 100, "distance": 840, "aircraft": "Commercial Airplane", "basePrice": 130, "minStay": 60},
+    {"origin": "PTY", "destination": "BOG", "time": 100, "distance": 840, "aircraft": "Commercial Airplane", "basePrice": 130, "minStay": 60},
+    {"origin": "BOG", "destination": "MEX", "time": 240, "distance": 2950, "aircraft": "Commercial Airplane", "basePrice": 250, "minStay": 120},
+    {"origin": "MEX", "destination": "BOG", "time": 240, "distance": 2950, "aircraft": "Commercial Airplane", "basePrice": 250, "minStay": 120},
+    {"origin": "BOG", "destination": "MIA", "time": 180, "distance": 2640, "aircraft": "Commercial Airplane", "basePrice": 230, "minStay": 120},
+    {"origin": "MIA", "destination": "BOG", "time": 180, "distance": 2640, "aircraft": "Commercial Airplane", "basePrice": 230, "minStay": 120},
+    {"origin": "BOG", "destination": "UIO", "time": 75, "distance": 590, "aircraft": "Regional Plane", "basePrice": 85, "minStay": 60},
+    {"origin": "UIO", "destination": "BOG", "time": 75, "distance": 590, "aircraft": "Regional Plane", "basePrice": 85, "minStay": 60},
+    {"origin": "MDE", "destination": "CLO", "time": 40, "distance": 200, "aircraft": "Propeller", "basePrice": 40, "minStay": 60},
+    {"origin": "CLO", "destination": "MDE", "time": 40, "distance": 200, "aircraft": "Propeller", "basePrice": 40, "minStay": 60},
+    {"origin": "MDE", "destination": "PTY", "time": 95, "distance": 780, "aircraft": "Commercial Airplane", "basePrice": 120, "minStay": 60},
+    {"origin": "PTY", "destination": "MDE", "time": 95, "distance": 780, "aircraft": "Commercial Airplane", "basePrice": 120, "minStay": 60},
+    {"origin": "MDE", "destination": "CTG", "time": 45, "distance": 420, "aircraft": "Regional Plane", "basePrice": 70, "minStay": 60},
+    {"origin": "CTG", "destination": "MDE", "time": 45, "distance": 420, "aircraft": "Regional Plane", "basePrice": 70, "minStay": 60},
+    {"origin": "LIM", "destination": "GRU", "time": 240, "distance": 3600, "aircraft": "Commercial Airplane", "basePrice": 270, "minStay": 180},
+    {"origin": "GRU", "destination": "LIM", "time": 240, "distance": 3600, "aircraft": "Commercial Airplane", "basePrice": 270, "minStay": 180},
+    {"origin": "LIM", "destination": "SCL", "time": 180, "distance": 2450, "aircraft": "Commercial Airplane", "basePrice": 200, "minStay": 120},
+    {"origin": "SCL", "destination": "LIM", "time": 180, "distance": 2450, "aircraft": "Commercial Airplane", "basePrice": 200, "minStay": 120},
+    {"origin": "LIM", "destination": "CUZ", "time": 60, "distance": 560, "aircraft": "Regional Plane", "basePrice": 90, "minStay": 120},
+    {"origin": "CUZ", "destination": "LIM", "time": 60, "distance": 560, "aircraft": "Regional Plane", "basePrice": 90, "minStay": 120},
+    {"origin": "LIM", "destination": "LPB", "time": 90, "distance": 1050, "aircraft": "Regional Plane", "basePrice": 110, "minStay": 60},
+    {"origin": "LPB", "destination": "LIM", "time": 90, "distance": 1050, "aircraft": "Regional Plane", "basePrice": 110, "minStay": 60},
+    {"origin": "LIM", "destination": "UIO", "time": 110, "distance": 1580, "aircraft": "Commercial Airplane", "basePrice": 150, "minStay": 60},
+    {"origin": "UIO", "destination": "LIM", "time": 110, "distance": 1580, "aircraft": "Commercial Airplane", "basePrice": 150, "minStay": 60},
+    {"origin": "GRU", "destination": "GIG", "time": 65, "distance": 360, "aircraft": "Regional Plane", "basePrice": 55, "minStay": 60},
+    {"origin": "GIG", "destination": "GRU", "time": 65, "distance": 360, "aircraft": "Regional Plane", "basePrice": 55, "minStay": 60},
+    {"origin": "GRU", "destination": "EZE", "time": 160, "distance": 1700, "aircraft": "Commercial Airplane", "basePrice": 160, "minStay": 120},
+    {"origin": "EZE", "destination": "GRU", "time": 160, "distance": 1700, "aircraft": "Commercial Airplane", "basePrice": 160, "minStay": 120},
+    {"origin": "GRU", "destination": "SCL", "time": 220, "distance": 2590, "aircraft": "Commercial Airplane", "basePrice": 210, "minStay": 120},
+    {"origin": "SCL", "destination": "GRU", "time": 220, "distance": 2590, "aircraft": "Commercial Airplane", "basePrice": 210, "minStay": 120},
+    {"origin": "EZE", "destination": "SCL", "time": 110, "distance": 1140, "aircraft": "Commercial Airplane", "basePrice": 130, "minStay": 60},
+    {"origin": "SCL", "destination": "EZE", "time": 110, "distance": 1140, "aircraft": "Commercial Airplane", "basePrice": 130, "minStay": 60},
+    {"origin": "EZE", "destination": "MVD", "time": 40, "distance": 220, "aircraft": "Propeller", "basePrice": 45, "minStay": 60},
+    {"origin": "MVD", "destination": "EZE", "time": 40, "distance": 220, "aircraft": "Propeller", "basePrice": 45, "minStay": 60},
+    {"origin": "EZE", "destination": "ASU", "time": 120, "distance": 1200, "aircraft": "Regional Plane", "basePrice": 125, "minStay": 60},
+    {"origin": "ASU", "destination": "EZE", "time": 120, "distance": 1200, "aircraft": "Regional Plane", "basePrice": 125, "minStay": 60},
+    {"origin": "SCL", "destination": "LPB", "time": 150, "distance": 1800, "aircraft": "Commercial Airplane", "basePrice": 175, "minStay": 60},
+    {"origin": "LPB", "destination": "SCL", "time": 150, "distance": 1800, "aircraft": "Commercial Airplane", "basePrice": 175, "minStay": 60},
+    {"origin": "PTY", "destination": "MEX", "time": 150, "distance": 1900, "aircraft": "Commercial Airplane", "basePrice": 175, "minStay": 120},
+    {"origin": "MEX", "destination": "PTY", "time": 150, "distance": 1900, "aircraft": "Commercial Airplane", "basePrice": 175, "minStay": 120},
+    {"origin": "PTY", "destination": "MIA", "time": 140, "distance": 2100, "aircraft": "Commercial Airplane", "basePrice": 180, "minStay": 120},
+    {"origin": "MIA", "destination": "PTY", "time": 140, "distance": 2100, "aircraft": "Commercial Airplane", "basePrice": 180, "minStay": 120},
+    {"origin": "PTY", "destination": "SAL", "time": 90, "distance": 750, "aircraft": "Regional Plane", "basePrice": 95, "minStay": 60},
+    {"origin": "SAL", "destination": "PTY", "time": 90, "distance": 750, "aircraft": "Regional Plane", "basePrice": 95, "minStay": 60},
+    {"origin": "PTY", "destination": "SJO", "time": 80, "distance": 650, "aircraft": "Regional Plane", "basePrice": 85, "minStay": 60},
+    {"origin": "SJO", "destination": "PTY", "time": 80, "distance": 650, "aircraft": "Regional Plane", "basePrice": 85, "minStay": 60},
+    {"origin": "PTY", "destination": "HAV", "time": 120, "distance": 1400, "aircraft": "Commercial Airplane", "basePrice": 150, "minStay": 60},
+    {"origin": "HAV", "destination": "PTY", "time": 120, "distance": 1400, "aircraft": "Commercial Airplane", "basePrice": 150, "minStay": 60},
+    {"origin": "MEX", "destination": "GDL", "time": 55, "distance": 460, "aircraft": "Regional Plane", "basePrice": 70, "minStay": 60},
+    {"origin": "GDL", "destination": "MEX", "time": 55, "distance": 460, "aircraft": "Regional Plane", "basePrice": 70, "minStay": 60},
+    {"origin": "MEX", "destination": "HAV", "time": 135, "distance": 1650, "aircraft": "Commercial Airplane", "basePrice": 160, "minStay": 60},
+    {"origin": "HAV", "destination": "MEX", "time": 135, "distance": 1650, "aircraft": "Commercial Airplane", "basePrice": 160, "minStay": 60},
+    {"origin": "MEX", "destination": "MIA", "time": 165, "distance": 2100, "aircraft": "Commercial Airplane", "basePrice": 195, "minStay": 120},
+    {"origin": "MIA", "destination": "MEX", "time": 165, "distance": 2100, "aircraft": "Commercial Airplane", "basePrice": 195, "minStay": 120},
+    {"origin": "MIA", "destination": "SDQ", "time": 110, "distance": 1440, "aircraft": "Commercial Airplane", "basePrice": 145, "minStay": 60},
+    {"origin": "SDQ", "destination": "MIA", "time": 110, "distance": 1440, "aircraft": "Commercial Airplane", "basePrice": 145, "minStay": 60},
+    {"origin": "MIA", "destination": "SJU", "time": 130, "distance": 1650, "aircraft": "Commercial Airplane", "basePrice": 160, "minStay": 60},
+    {"origin": "SJU", "destination": "MIA", "time": 130, "distance": 1650, "aircraft": "Commercial Airplane", "basePrice": 160, "minStay": 60},
+    {"origin": "MIA", "destination": "HAV", "time": 50, "distance": 360, "aircraft": "Propeller", "basePrice": 65, "minStay": 60},
+    {"origin": "HAV", "destination": "MIA", "time": 50, "distance": 360, "aircraft": "Propeller", "basePrice": 65, "minStay": 60},
+    {"origin": "UIO", "destination": "GYE", "time": 35, "distance": 280, "aircraft": "Propeller", "basePrice": 40, "minStay": 60},
+    {"origin": "GYE", "destination": "UIO", "time": 35, "distance": 280, "aircraft": "Propeller", "basePrice": 40, "minStay": 60},
+    {"origin": "UIO", "destination": "LPB", "time": 110, "distance": 1500, "aircraft": "Regional Plane", "basePrice": 140, "minStay": 60},
+    {"origin": "LPB", "destination": "UIO", "time": 110, "distance": 1500, "aircraft": "Regional Plane", "basePrice": 140, "minStay": 60},
+    {"origin": "GYE", "destination": "LIM", "time": 120, "distance": 1680, "aircraft": "Commercial Airplane", "basePrice": 155, "minStay": 60},
+    {"origin": "LIM", "destination": "GYE", "time": 120, "distance": 1680, "aircraft": "Commercial Airplane", "basePrice": 155, "minStay": 60},
+    {"origin": "SJO", "destination": "TGU", "time": 60, "distance": 490, "aircraft": "Regional Plane", "basePrice": 70, "minStay": 60},
+    {"origin": "TGU", "destination": "SJO", "time": 60, "distance": 490, "aircraft": "Regional Plane", "basePrice": 70, "minStay": 60},
+    {"origin": "SAL", "destination": "TGU", "time": 35, "distance": 180, "aircraft": "Propeller", "basePrice": 35, "minStay": 60},
+    {"origin": "TGU", "destination": "SAL", "time": 35, "distance": 180, "aircraft": "Propeller", "basePrice": 35, "minStay": 60},
+    {"origin": "SAL", "destination": "MGA", "time": 30, "distance": 160, "aircraft": "Propeller", "basePrice": 30, "minStay": 60},
+    {"origin": "MGA", "destination": "SAL", "time": 30, "distance": 160, "aircraft": "Propeller", "basePrice": 30, "minStay": 60},
+    {"origin": "MGA", "destination": "TGU", "time": 45, "distance": 250, "aircraft": "Propeller", "basePrice": 38, "minStay": 60},
+    {"origin": "TGU", "destination": "MGA", "time": 45, "distance": 250, "aircraft": "Propeller", "basePrice": 38, "minStay": 60},
+    {"origin": "CTG", "destination": "ADZ", "time": 40, "distance": 230, "aircraft": "Propeller", "basePrice": 0, "minStay": 60},
+    {"origin": "ADZ", "destination": "CTG", "time": 40, "distance": 230, "aircraft": "Propeller", "basePrice": 0, "minStay": 60},
+    {"origin": "BAQ", "destination": "CTG", "time": 30, "distance": 130, "aircraft": "Propeller", "basePrice": 30, "minStay": 60},
+    {"origin": "CTG", "destination": "BAQ", "time": 30, "distance": 130, "aircraft": "Propeller", "basePrice": 30, "minStay": 60},
+    {"origin": "BAQ", "destination": "CCS", "time": 90, "distance": 980, "aircraft": "Regional Plane", "basePrice": 100, "minStay": 60},
+    {"origin": "CCS", "destination": "BAQ", "time": 90, "distance": 980, "aircraft": "Regional Plane", "basePrice": 100, "minStay": 60},
+    {"origin": "CCS", "destination": "SDQ", "time": 110, "distance": 1300, "aircraft": "Commercial Airplane", "basePrice": 140, "minStay": 60},
+    {"origin": "SDQ", "destination": "CCS", "time": 110, "distance": 1300, "aircraft": "Commercial Airplane", "basePrice": 140, "minStay": 60},
+    {"origin": "ASU", "destination": "GRU", "time": 130, "distance": 1600, "aircraft": "Commercial Airplane", "basePrice": 155, "minStay": 120},
+    {"origin": "GRU", "destination": "ASU", "time": 130, "distance": 1600, "aircraft": "Commercial Airplane", "basePrice": 155, "minStay": 120},
+    {"origin": "MVD", "destination": "GRU", "time": 120, "distance": 1400, "aircraft": "Commercial Airplane", "basePrice": 140, "minStay": 120},
+    {"origin": "GRU", "destination": "MVD", "time": 120, "distance": 1400, "aircraft": "Commercial Airplane", "basePrice": 140, "minStay": 120},
+    {"origin": "LPB", "destination": "ASU", "time": 100, "distance": 1200, "aircraft": "Regional Plane", "basePrice": 120, "minStay": 60},
+    {"origin": "ASU", "destination": "LPB", "time": 100, "distance": 1200, "aircraft": "Regional Plane", "basePrice": 120, "minStay": 60},
+    {"origin": "SDQ", "destination": "SJU", "time": 50, "distance": 300, "aircraft": "Regional Plane", "basePrice": 55, "minStay": 60},
+    {"origin": "SJU", "destination": "SDQ", "time": 50, "distance": 300, "aircraft": "Regional Plane", "basePrice": 55, "minStay": 60},
+    {"origin": "BGA", "destination": "CTG", "time": 55, "distance": 410, "aircraft": "Regional Plane", "basePrice": 65, "minStay": 60},
+    {"origin": "CTG", "destination": "BGA", "time": 55, "distance": 410, "aircraft": "Regional Plane", "basePrice": 65, "minStay": 60}
+  ]
+}

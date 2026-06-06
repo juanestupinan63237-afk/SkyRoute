@@ -9,15 +9,10 @@ class SimulationEngine:
     def __init__(self, travelerJsonPath, graph: Graph):
         self.jsonPath = travelerJsonPath
         self.graph = graph
-
-    # ─────────────────────────────────────────
-    # Persistencia
-    # ─────────────────────────────────────────
     def _ensureFile(self):
         if not os.path.exists(self.jsonPath):
             with open(self.jsonPath, "w", encoding="utf-8") as f:
                 json.dump({}, f)
-
     def loadTraveler(self, travelerId):
         self._ensureFile()
         with open(self.jsonPath, "r", encoding="utf-8") as file:
@@ -60,9 +55,6 @@ class SimulationEngine:
         with open(self.jsonPath, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4, ensure_ascii=False)
 
-    # ─────────────────────────────────────────
-    # FIX: createTraveler — faltaba este método
-    # ─────────────────────────────────────────
     def createTraveler(self, travelerId, name, budget, timeAvailable, startAirportId):
         traveler = Traveler(
             id=travelerId,
@@ -74,24 +66,21 @@ class SimulationEngine:
         self.saveTravelerData(traveler)
         return traveler
 
-    # ─────────────────────────────────────────
-    # FIX: getAirportOptions — ahora incluye todos los campos que necesita el frontend
-    # ─────────────────────────────────────────
     def getAirportOptions(self, travelerId):
         traveler = self.loadTraveler(travelerId)
         airport: Airport = self.graph.getAirportPerCode(traveler.actualAirportId)
         return {
             "travelerStatus": {
                 "id": traveler.id,
-                "name": traveler.name,                          # FIX: faltaba
+                "name": traveler.name,                          
                 "currentAirport": traveler.actualAirportId,
                 "budgetLeft": round(traveler.restantBudget, 2),
-                "initialBudget": round(traveler.budget, 2),     # FIX: faltaba
+                "initialBudget": round(traveler.budget, 2),     
                 "timeLeft": round(traveler.timeAvailable, 2),
                 "canWork": traveler.isActiveToWork(),
                 "inTransit": traveler.currentFlight is not None,
                 "isActive": traveler.activeUser,
-                "visitedAirports": traveler.visitedAirports     # FIX: faltaba
+                "visitedAirports": traveler.visitedAirports     
             },
             "currentAirportInfo": {
                 "iataId": airport.iataId,
@@ -102,14 +91,14 @@ class SimulationEngine:
                 "accommodationCost": airport.accommodationCost,
                 "foodCost": airport.foodCost
             },
-            # FIX: ahora incluye destinationName, destinationCity e isBlocked
+
             "flights": [
                 {
                     "destination": r.destination.iataId,
-                    "destinationName": r.destination.name,      # FIX: faltaba
-                    "destinationCity": r.destination.city,      # FIX: faltaba
+                    "destinationName": r.destination.name,      
+                    "destinationCity": r.destination.city,      
                     "distanceKm": r.distance,
-                    "isBlocked": r.isBlocked,                   # FIX: faltaba
+                    "isBlocked": r.isBlocked,                   
                     "aircraftOptions": [
                         {"type": "Commercial Airplane", "cost": round(r.basePrice + r.distance * 0.18, 2), "timeMin": round(r.distance * 0.7, 1)},
                         {"type": "Regional Plane",      "cost": round(r.basePrice + r.distance * 0.25, 2), "timeMin": round(r.distance * 1.1, 1)},
@@ -129,9 +118,6 @@ class SimulationEngine:
             ] if traveler.isActiveToWork() else []
         }
 
-    # ─────────────────────────────────────────
-    # FIX: startFlight — renombrado desde process_flight
-    # ─────────────────────────────────────────
     def startFlight(self, travelerId, destinationIata, aircraftType, criterion="cost"):
         traveler = self.loadTraveler(travelerId)
         if traveler.currentFlight:
@@ -168,9 +154,6 @@ class SimulationEngine:
             "flightDetails": traveler.currentFlight
         }
 
-    # ─────────────────────────────────────────
-    # tickSimulation — sin cambios de nombre, solo fixes internos
-    # ─────────────────────────────────────────
     def tickSimulation(self, travelerId, timeStepHours=0.5):
         traveler = self.loadTraveler(travelerId)
         if traveler.currentFlight:
@@ -198,9 +181,6 @@ class SimulationEngine:
             "isActive":    traveler.activeUser
         }
 
-    # ─────────────────────────────────────────
-    # FIX: doActivity — renombrado desde processAirportActivity
-    # ─────────────────────────────────────────
     def doActivity(self, travelerId, activityId):
         traveler = self.loadTraveler(travelerId)
         if traveler.currentFlight:
@@ -214,9 +194,6 @@ class SimulationEngine:
         self.saveTravelerData(traveler)
         return {"success": True, "budgetLeft": round(traveler.restantBudget, 2), "timeLeft": round(traveler.timeAvailable, 2)}
 
-    # ─────────────────────────────────────────
-    # FIX: doJob — renombrado desde processAirportActivity con isJob=True
-    # ─────────────────────────────────────────
     def doJob(self, travelerId, jobId, hours):
         traveler = self.loadTraveler(travelerId)
         if traveler.currentFlight:
@@ -232,9 +209,6 @@ class SimulationEngine:
         self.saveTravelerData(traveler)
         return {"success": True, "budgetLeft": round(traveler.restantBudget, 2), "timeLeft": round(traveler.timeAvailable, 2)}
 
-    # ─────────────────────────────────────────
-    # FIX: interruptFlight — renombrado desde interruptCurrentFlight
-    # ─────────────────────────────────────────
     def interruptFlight(self, travelerId, originIata, destinationIata):
         self.graph.blockRoute(originIata, destinationIata)
         traveler = self.loadTraveler(travelerId)

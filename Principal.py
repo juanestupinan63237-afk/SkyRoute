@@ -171,15 +171,30 @@ def get_traveler_status(tid):
 
 @app.route("/traveler/<tid>/fly", methods=["POST"])
 def start_flight(tid):
-    """
-    Body: { destination, aircraftType, criterion }
-    """
     try:
         b = request.get_json(force=True)
-        return ok(engine.startFlight(tid, b["destination"].upper(), b.get("aircraftType", "Commercial Airplane"), b.get("criterion", "cost")))
+        dest      = b["destination"].upper()
+        aircraft  = b.get("aircraftType", "Commercial Airplane")
+        criterion = b.get("criterion", "cost")
+        
+        # DEBUG TEMPORAL
+        traveler = engine.loadTraveler(tid)
+        origin   = graph.getAirportPerCode(traveler.actualAirportId)
+        destNode = graph.getAirportPerCode(dest)
+        from Classes.RouteEngine.RoutePlanner import RoutePlanner
+        p = RoutePlanner()
+        result = p.dijkstra(graph, origin, destNode, criterion, None, False)
+        print(">>> DIJKSTRA RESULT:", result)
+        print(">>> RUTAS DESDE", traveler.actualAirportId, ":", [r.destination.iataId for r in origin.adjacencies])
+        # FIN DEBUG
+        
+        return ok(engine.startFlight(tid, dest, aircraft, criterion))
     except Exception as e:
+        import traceback
+        traceback.print_exc()      # imprime el error completo en terminal
         return err(e)
-
+    
+    
 @app.route("/traveler/<tid>/tick", methods=["POST"])
 def tick(tid):
     """

@@ -26,18 +26,17 @@ class Traveler:
     def CreateItineraryPerCriterion (self ,graph ,criterion , origin , destination , allowedAircraft = None):
         self.history = RoutePlanner().calculateRoute (graph , origin , destination , criterion , allowedAircraft)
 
-    def AddAllItineraryTravels (self , graph: Graph):
-        initial = self.actualAirportId
-        final = self.history.visitedDestinations [0]
-        for i in range (0 , len(self.history.visitedDestinations)-1):
-            route = graph.getRoute (initial , final)
+    def AddAllItineraryTravels(self, graph: Graph):
+        destinations = self.history.visitedDestinations
+        for i in range(len(destinations) - 1):
+            initial = destinations[i]
+            final   = destinations[i + 1]
+            route = graph.getRoute(initial, final)
             if self.restantBudget <= (route.basePrice + route.aircraft.calculateCost(route.distance)):
                 self.activeUser = False
-                raise Exception ("This traveler don´t have many money to buy this ticket...")
-            self.restantActivities.append (ActiveFly (initial , final , route.time , route.time))
+                raise Exception("This traveler doesn't have enough money to buy this ticket...")
+            self.restantActivities.append(ActiveFly(initial, final, route.time, route.time))
             self.restantBudget -= route.basePrice + route.aircraft.calculateCost(route.distance)
-            initial = route.destination.iataId
-            final = self.history.visitedDestinations [i+1]
 
 
     def pastTime (self , pastHours: int , graph: Graph):

@@ -102,5 +102,82 @@
         "activeUser": true,
         "visitedAirports": [],
         "currentFlight": null
+    },
+    "T59387": {
+        "id": "T59387",
+        "name": "Angel",
+        "budget": 324.0,
+        "restantBudget": 122.0,
+        "timeAvailable": 34271.0,
+        "actualAirportId": "ADZ",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 12.0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T01835": {
+        "id": "T01835",
+        "name": "frtd5rde4",
+        "budget": 54654654.0,
+        "restantBudget": 54654654.0,
+        "timeAvailable": 65465654.0,
+        "actualAirportId": "ADZ",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T48075": {
+        "id": "T48075",
+        "name": "grdgfdgfd",
+        "budget": 54435435.0,
+        "restantBudget": 54435435.0,
+        "timeAvailable": 54543543.0,
+        "actualAirportId": "ADZ",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T23876": {
+        "id": "T23876",
+        "name": "543543",
+        "budget": 43254325.0,
+        "restantBudget": 43254325.0,
+        "timeAvailable": 534543534.0,
+        "actualAirportId": "ASU",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T17963": {
+        "id": "T17963",
+        "name": "dfewfesf",
+        "budget": 546565.0,
+        "restantBudget": 546330.4,
+        "timeAvailable": 6546540.0,
+        "actualAirportId": "ADZ",
+        "timeSinceLastMeal": 6.0,
+        "timeSinceLastAccommodation": 6.0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": {
+            "origin": "ADZ",
+            "destination": "BOG",
+            "hoursTotal": 10.27,
+            "hoursProgress": 6.0,
+            "aircraftType": "Commercial Airplane",
+            "criterion": "cost",
+            "route": [
+                "ADZ",
+                "CTG",
+                "BOG"
+            ]
+        }
     }
 }

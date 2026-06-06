@@ -179,5 +179,20 @@
                 "BOG"
             ]
         }
+    },
+    "T35202": {
+        "id": "T35202",
+        "name": "hgdfhgfhg",
+        "budget": 4565464.0,
+        "restantBudget": 4564438.4,
+        "timeAvailable": 65454564.0,
+        "actualAirportId": "CTG",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 6.0,
+        "activeUser": true,
+        "visitedAirports": [
+            "CTG"
+        ],
+        "currentFlight": null
     }
 }

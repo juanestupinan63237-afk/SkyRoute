@@ -63,5 +63,44 @@
         "activeUser": true,
         "visitedAirports": [],
         "currentFlight": null
+    },
+    "T62699": {
+        "id": "T62699",
+        "name": "32r32",
+        "budget": 100000.0,
+        "restantBudget": 100000.0,
+        "timeAvailable": 100000.0,
+        "actualAirportId": "ADZ",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T79659": {
+        "id": "T79659",
+        "name": "Millei",
+        "budget": 100000.0,
+        "restantBudget": 100000.0,
+        "timeAvailable": 100000.0,
+        "actualAirportId": "ADZ",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T13155": {
+        "id": "T13155",
+        "name": "34535",
+        "budget": 5435435.0,
+        "restantBudget": 5435435.0,
+        "timeAvailable": 543543534.0,
+        "actualAirportId": "ADZ",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
     }
 }

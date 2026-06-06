@@ -21,6 +21,7 @@ class Traveler:
         self.activities:list = []
         self.restantActivities : list= []
         self.visitedAirports = []
+        self.currentFlight = None    
 
     def CreateItineraryPerCriterion (self ,graph ,criterion , origin , destination , allowedAircraft = None):
         self.history = RoutePlanner().calculateRoute (graph , origin , destination , criterion , allowedAircraft)

@@ -115,10 +115,10 @@ class Traveler:
         elif type (activity) == Activity:
             new_activity = TemporalActivity (activity.id , activity.duration , activity.name , activity.duration , activity.price)
             self.restantBudget -= new_activity.price
-            idx = len(self.restantActivities)  
+            idx = len(self.restantActivities)
             for i, act in enumerate(self.restantActivities):
                 if isinstance(act, ActiveFly):
-                    idx = i  
+                    idx = i
                     break
             self.restantActivities.insert (idx , new_activity)
             self.activities.append (new_activity)

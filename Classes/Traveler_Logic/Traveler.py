@@ -7,7 +7,7 @@ from Classes.Nucleus.Graph import Graph
 from Classes.Domain.ActivityUser import Activity
 from Classes.Domain.Job import Job
 class Traveler:
-    def __init__(self, id , name ,budget,timeAvailable , actualAirportId , timeSinceLastMeal = 0 , timeSinceLastAccommodation = 0, history = None , activeUser = True , activities = [] , restantActivities=[]):
+    def __init__(self, id , name ,budget,timeAvailable , actualAirportId , timeSinceLastMeal = 0 , timeSinceLastAccommodation = 0, history = None , activeUser = True):
         self.budget = budget
         self.name = name
         self.id = id
@@ -18,8 +18,8 @@ class Traveler:
         self.timeSinceLastAccommodation = timeSinceLastAccommodation
         self.activeUser = activeUser
         self.actualAirportId = actualAirportId
-        self.activities:list = activities
-        self.restantActivities : list= restantActivities
+        self.activities:list = []
+        self.restantActivities : list= []
         self.visitedAirports = []
 
     def CreateItineraryPerCriterion (self ,graph ,criterion , origin , destination , allowedAircraft = None):

@@ -1,0 +1,67 @@
+{
+    "T001": {
+        "id": "T001",
+        "name": "Ana García",
+        "budget": 3000,
+        "restantBudget": 3000,
+        "timeAvailable": 168,
+        "actualAirportId": "BOG",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T002": {
+        "id": "T002",
+        "name": "Carlos Mendoza",
+        "budget": 1500,
+        "restantBudget": 1500,
+        "timeAvailable": 72,
+        "actualAirportId": "MDE",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T003": {
+        "id": "T003",
+        "name": "Lucía Torres",
+        "budget": 5000,
+        "restantBudget": 5000,
+        "timeAvailable": 240,
+        "actualAirportId": "LIM",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T004": {
+        "id": "T004",
+        "name": "Sebastián Rojas",
+        "budget": 800,
+        "restantBudget": 800,
+        "timeAvailable": 48,
+        "actualAirportId": "GRU",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T005": {
+        "id": "T005",
+        "name": "Valentina Cruz",
+        "budget": 2500,
+        "restantBudget": 2500,
+        "timeAvailable": 120,
+        "actualAirportId": "SCL",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    }
+}

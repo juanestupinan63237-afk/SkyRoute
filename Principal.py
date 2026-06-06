@@ -1,19 +1,15 @@
 from flask import Flask, request, jsonify, render_template
-
 from Classes.Services.ParserJSON import ParserJSON
 from Classes.Planning.Simulation import SimulationEngine
 from Classes.Services.InterruptionsService import Interruptions
 from Classes.Services.report_service import ReportService
 from Classes.RouteEngine.RoutePlanner import RoutePlanner
 
-# ─────────────────────────────────────────────
-# App setup
-# ─────────────────────────────────────────────
 app = Flask(__name__)
 
 parser  = ParserJSON()
 graph   = parser.parse("Data/airports.json")
-engine  = SimulationEngine(TRAVELERS_JSON, graph)
+engine  = SimulationEngine("Data/travelers.json", graph)
 planner = RoutePlanner()
 report  = ReportService()
 

@@ -66,5 +66,5 @@ class ParserJSON:
                 aircraftObj = Propeller()
 
             if origin is not None and destination is not None and aircraftObj is not None:
-                graph.insertRoute(origin, destination, time, aircraftObj, distance, basePrice, minStay)
+                graph.insertRoute(origin, destination, route["time"], route["distance"], aircraftObj, route["basePrice"], route["minStay"])
         return graph

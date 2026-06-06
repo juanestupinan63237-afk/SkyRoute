@@ -73,14 +73,10 @@ function populateSelects() {
   });
 }
 
-// Click en nodo del grafo
 renderer.onNodeClick = (node) => {
   log(`🏛 <b>${node.id}</b> — ${node.name}, ${node.city}`, 'info');
 };
 
-// ─────────────────────────────────────────────
-// Viajero
-// ─────────────────────────────────────────────
 document.getElementById('btnNewTraveler').onclick = () => {
   document.getElementById('formNewTraveler').classList.toggle('hidden');
 };
@@ -199,9 +195,6 @@ function renderJobs(jobs, canWork) {
   });
 }
 
-// ─────────────────────────────────────────────
-// Acciones de vuelo / actividad / trabajo
-// ─────────────────────────────────────────────
 async function startFlight(destination) {
   if (!currentTravelerId) return;
   const aircraft  = document.getElementById('selAircraft').value;
@@ -232,14 +225,10 @@ document.getElementById('btnConfirmJob').onclick = async () => {
   await refreshTraveler();
 };
 
-// Actualizar lista de vuelos cuando cambia aeronave
 document.getElementById('selAircraft').onchange = async () => {
   if (currentTravelerId) await refreshTraveler();
 };
 
-// ─────────────────────────────────────────────
-// Panel tránsito
-// ─────────────────────────────────────────────
 function updateTransitPanel(status) {
   const panel = document.getElementById('transitPanel');
   if (!status.inTransit) { panel.classList.add('hidden'); return; }
@@ -270,13 +259,9 @@ document.getElementById('btnInterrupt').onclick = async () => {
   if (!res_status.success) return;
   const flight = res_status.data.travelerStatus;
   if (!flight.inTransit) { log('No hay vuelo en curso', 'warning'); return; }
-
-  // Obtener origen/destino del vuelo actual desde el backend
   const travRes = await api('GET', `/traveler/${currentTravelerId}`);
   const inFlight = travRes.data?.travelerStatus?.inTransit;
   if (!inFlight) { log('No hay vuelo activo para interrumpir', 'warning'); return; }
-
-  // Pedir al usuario que confirme
   const orig = prompt('Código IATA de origen de la ruta a bloquear:');
   const dest = prompt('Código IATA de destino de la ruta a bloquear:');
   if (!orig || !dest) return;
@@ -293,9 +278,6 @@ document.getElementById('btnInterrupt').onclick = async () => {
   await refreshTraveler();
 };
 
-// ─────────────────────────────────────────────
-// Calcular ruta (R2)
-// ─────────────────────────────────────────────
 document.getElementById('btnCalcRoute').onclick = async () => {
   const origin    = document.getElementById('routeOrigin').value;
   const dest      = document.getElementById('routeDest').value;
@@ -331,9 +313,6 @@ document.getElementById('btnCalcRoute').onclick = async () => {
   log(`🗺 Ruta <b>${origin}→${dest}</b> por ${criterion}: ${d.stops.join('→')} ($${d.totalCost.toFixed(0)})`, 'success');
 };
 
-// ─────────────────────────────────────────────
-// Bloquear / desbloquear ruta (R4)
-// ─────────────────────────────────────────────
 document.getElementById('btnBlock').onclick = async () => {
   const orig = document.getElementById('blockOrigin').value;
   const dest = document.getElementById('blockDest').value;
@@ -359,10 +338,6 @@ document.getElementById('btnUnblock').onclick = async () => {
   log(`✅ Ruta <b>${orig}→${dest}</b> desbloqueada`, 'success');
   document.getElementById('blockResult').classList.add('hidden');
 };
-
-// ─────────────────────────────────────────────
-// Reporte final (R5)
-// ─────────────────────────────────────────────
 document.getElementById('btnReport').onclick = async () => {
   if (!currentTravelerId) { log('Sin viajero activo', 'warning'); return; }
   const res = await api('GET', `/traveler/${currentTravelerId}/report`);
@@ -429,9 +404,6 @@ function renderReport(data) {
   `;
 }
 
-// ─────────────────────────────────────────────
-// Tabs sidebar
-// ─────────────────────────────────────────────
 document.querySelectorAll('.tab').forEach(btn => {
   btn.onclick = () => {
     const tabId = btn.dataset.tab;
@@ -442,10 +414,6 @@ document.querySelectorAll('.tab').forEach(btn => {
   };
 });
 
-// Centrar grafo
 document.getElementById('btnFitGraph').onclick = () => renderer.fitToScreen();
 
-// ─────────────────────────────────────────────
-// Init
-// ─────────────────────────────────────────────
 loadGraph();

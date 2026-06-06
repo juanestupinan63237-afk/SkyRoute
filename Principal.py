@@ -13,9 +13,6 @@ engine  = SimulationEngine("Data/travelers.json", graph)
 planner = RoutePlanner()
 report  = ReportService()
 
-# ─────────────────────────────────────────────
-# Helpers
-# ─────────────────────────────────────────────
 def ok(data=None, msg="OK", code=200):
     return jsonify({"success": True, "message": msg, "data": data}), code
 
@@ -153,8 +150,12 @@ def create_traveler():
     """
     try:
         b = request.get_json(force=True)
-        graph.getAirportPerCode(b["startAirport"].upper())   # valida existencia
-        engine.createTraveler(str(b["id"]), b["name"], float(b["budget"]), float(b["timeAvailable"]), b["startAirport"].upper())
+        tid    = str(b["id"])           # <-- debe llamarse "id"
+        name   = b["name"]              # <-- "name"
+        budget = float(b["budget"])     # <-- "budget"
+        time_h = float(b["timeAvailable"])  # <-- "timeAvailable"
+        start  = b["startAirport"].upper()
+        engine.createTraveler(tid, name, budget, time_h, start)
         return ok({"id": str(b["id"]), "name": b["name"], "startAirport": b["startAirport"].upper()}, "Viajero creado", 201)
     except Exception as e:
         return err(e)

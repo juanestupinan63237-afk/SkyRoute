@@ -102,5 +102,18 @@
         "activeUser": true,
         "visitedAirports": [],
         "currentFlight": null
+    },
+    "T66317": {
+        "id": "T66317",
+        "name": "Simón",
+        "budget": 4000.0,
+        "restantBudget": 4000.0,
+        "timeAvailable": 25.0,
+        "actualAirportId": "BOG",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
     }
 }

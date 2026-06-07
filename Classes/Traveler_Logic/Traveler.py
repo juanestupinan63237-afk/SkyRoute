@@ -12,7 +12,7 @@ class Traveler:
         self.name = name
         self.id = id
         self.restantBudget = budget
-        self.timeAvailable = timeAvailable
+        self.initialtimeAvailable = timeAvailable
         self.history : Itinerary = history
         self.timeSinceLastMeal = timeSinceLastMeal
         self.timeSinceLastAccommodation = timeSinceLastAccommodation
@@ -79,6 +79,13 @@ class Traveler:
             if self.timeSinceLastMeal >= 8:
                 self.timeSinceLastMeal = 0
                 self.restantBudget -= cost
+                meal = TemporalActivity("meal", 0, "Meal", 0, cost, airportId=self.actualAirportId)
+                meal.isImportant = True
+                self.activities.append(meal)
+                stay = TemporalActivity("accommodation", 0, "Accommodation", 0, cost, airportId=self.actualAirportId)
+                stay.isImportant = True
+                self.activities.append(stay)
+
 
     def descountToAcommodation (self , cost):
         if self.activeUser:

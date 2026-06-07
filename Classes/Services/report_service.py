@@ -116,7 +116,8 @@ class ReportService:
         flight_hours = sum(getattr(a, "hours", 0) for a in traveler.activities if isinstance(a, ActiveFly))
         stay_hours   = sum(getattr(a, "duration", 0) / 60 for a in traveler.activities if isinstance(a, TemporalActivity))
         job_hours    = sum(getattr(a, "time", 0) for a in traveler.activities if isinstance(a, TemporalJob))
-        
+
+        initial_time = getattr(traveler, "initialTimeAvailable", traveler.timeAvailable)
         return {
             "initialBudget":       round(traveler.budget, 2),
             "totalSpent":          round(total_spent, 2),
@@ -124,6 +125,7 @@ class ReportService:
             "finalBalance":        round(traveler.restantBudget, 2),
             "timeRemainingH":      round(traveler.timeAvailable, 2),
             "destinationsVisited": len(traveler.visitedAirports),
+            "totalTimeUsedH":      round(initial_time - traveler.timeAvailable, 2),
         }
 
     def build_traveler_summary(self, traveler: Traveler) -> dict:

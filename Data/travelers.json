@@ -233,5 +233,31 @@
         "activeUser": true,
         "visitedAirports": [],
         "currentFlight": null
+    },
+    "T50224": {
+        "id": "T50224",
+        "name": "ida",
+        "budget": 34435.0,
+        "restantBudget": 34435.0,
+        "timeAvailable": 32.0,
+        "actualAirportId": "LIM",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T81037": {
+        "id": "T81037",
+        "name": "isa",
+        "budget": 1000.0,
+        "restantBudget": 1000.0,
+        "timeAvailable": 3.0,
+        "actualAirportId": "GRU",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
     }
 }

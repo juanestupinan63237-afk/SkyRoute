@@ -41,6 +41,11 @@ class Graph:
             if s.origin.iataId == originIata and s.destination.iataId == destinationIata:
                 s.isBlocked = True
 
+    def unblockRoute(self, originIata, destinationIata):
+        for s in self.routes:
+            if s.origin.iataId == originIata and s.destination.iataId == destinationIata:
+                s.isBlocked = False
+
     def getAirportPerCode (self , code):
         for i in self.airports:
             if i.iataId == code:

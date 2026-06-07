@@ -220,5 +220,18 @@
         "activeUser": true,
         "visitedAirports": [],
         "currentFlight": null
+    },
+    "T04245": {
+        "id": "T04245",
+        "name": "isa",
+        "budget": 2498.0,
+        "restantBudget": 2478.0,
+        "timeAvailable": 0.5,
+        "actualAirportId": "HAV",
+        "timeSinceLastMeal": 1.5,
+        "timeSinceLastAccommodation": 1.5,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
     }
 }

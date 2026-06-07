@@ -33,7 +33,6 @@ class SimulationEngine:
         traveler.restantBudget = travelerData.get("restantBudget", travelerData["budget"])
         traveler.visitedAirports = travelerData.get("visitedAirports", [])
         traveler.currentFlight = travelerData.get("currentFlight", None)
-        traveler.initialTimeAvailable = travelerData.get("initialTimeAvailable", travelerData["budget_tiempo"] if "budget_tiempo" in travelerData else travelerData["timeAvailable"])
         return traveler
 
     def saveTravelerData(self, traveler: Traveler):
@@ -46,7 +45,6 @@ class SimulationEngine:
             "budget": traveler.budget,
             "restantBudget": traveler.restantBudget,
             "timeAvailable": traveler.timeAvailable,
-            "initialTimeAvailable": traveler.initialTimeAvailable,
             "actualAirportId": traveler.actualAirportId,
             "timeSinceLastMeal": traveler.timeSinceLastMeal,
             "timeSinceLastAccommodation": traveler.timeSinceLastAccommodation,

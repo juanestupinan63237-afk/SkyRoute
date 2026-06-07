@@ -42,14 +42,16 @@ class ReportService:
         total_cost = 0.0
         for activity in traveler.activities:
             if isinstance(activity, TemporalActivity):
-                total_cost += getattr(activity, "price", 0.0)
+                if getattr(activity, "airportId", None) == iata_code:
+                    total_cost += getattr(activity, "price", 0.0)
         return total_cost
 
     def _stay_minutes_at(self, traveler: Traveler, iata_code: str) -> int:
         total_minutes = 0
         for activity in traveler.activities:
             if isinstance(activity, TemporalActivity):
-                total_minutes += getattr(activity, "duration", 0)
+                if getattr(activity, "airportId", None) == iata_code:
+                    total_minutes += getattr(activity, "duration", 0)
         return total_minutes
 
     def _build_flights(self, traveler: Traveler, graph: Graph) -> list:
@@ -110,6 +112,11 @@ class ReportService:
             if isinstance(a, TemporalJob)
         )
         total_spent = traveler.budget - traveler.restantBudget
+
+        flight_hours = sum(getattr(a, "hours", 0) for a in traveler.activities if isinstance(a, ActiveFly))
+        stay_hours   = sum(getattr(a, "duration", 0) / 60 for a in traveler.activities if isinstance(a, TemporalActivity))
+        job_hours    = sum(getattr(a, "time", 0) for a in traveler.activities if isinstance(a, TemporalJob))
+        
         return {
             "initialBudget":       round(traveler.budget, 2),
             "totalSpent":          round(total_spent, 2),

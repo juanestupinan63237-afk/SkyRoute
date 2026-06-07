@@ -58,7 +58,7 @@ class Traveler:
                     for i in activities_of_add:
                         if type (i) == Activity:
                             if i.isImportant:
-                                temp = TemporalActivity (i.id , i.duration , i.name, i.duration , i.price )
+                                temp = TemporalActivity (i.id , i.duration , i.name, i.duration , i.price , airportId=self.actualAirportId )
                                 self.activities.append (temp)
                                 self.restantActivities.insert(0, temp)
                     self.visitedAirports.append (self.actualAirportId)
@@ -113,7 +113,7 @@ class Traveler:
             else:                                                  # else del if isActiveToWork
                 raise Exception("the traveler doesn't have permission to work right now...")
         elif type (activity) == Activity:
-            new_activity = TemporalActivity (activity.id , activity.duration , activity.name , activity.duration , activity.price)
+            new_activity = TemporalActivity (activity.id , activity.duration , activity.name , activity.duration , activity.price ,  airportId=self.actualAirportId)
             self.restantBudget -= new_activity.price
             idx = len(self.restantActivities)
             for i, act in enumerate(self.restantActivities):

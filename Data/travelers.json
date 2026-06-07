@@ -194,5 +194,31 @@
             "CTG"
         ],
         "currentFlight": null
+    },
+    "T44736": {
+        "id": "T44736",
+        "name": "isa",
+        "budget": 100.0,
+        "restantBudget": 100.0,
+        "timeAvailable": 7.0,
+        "actualAirportId": "GYE",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T36255": {
+        "id": "T36255",
+        "name": "sara",
+        "budget": 100.0,
+        "restantBudget": 70.0,
+        "timeAvailable": -4.0,
+        "actualAirportId": "ADZ",
+        "timeSinceLastMeal": 5.0,
+        "timeSinceLastAccommodation": 5.0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
     }
 }

@@ -12,7 +12,7 @@ class Traveler:
         self.name = name
         self.id = id
         self.restantBudget = budget
-        self.initialtimeAvailable = timeAvailable
+        self.timeAvailable = timeAvailable
         self.history : Itinerary = history
         self.timeSinceLastMeal = timeSinceLastMeal
         self.timeSinceLastAccommodation = timeSinceLastAccommodation

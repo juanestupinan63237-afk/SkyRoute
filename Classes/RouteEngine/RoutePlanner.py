@@ -88,45 +88,5 @@ class RoutePlanner:
         route.reverse()
         return route
 
-    def maximumOptimization(self, graph : Graph, airportOrigin, maximumBudget, limit):
-        origin = None
-        for a in graph.airports:
-            if airportOrigin == a.iataId:
-                origin = a
-        if origin is None:
-            return []
-        self.bestRoute = []
-        visited = set()
-        def dfs(currentAirport, currentBudget, currentRoute, usedAircraft, currentAccumulatedTime):
-            if currentBudget > maximumBudget:
-                return
-            if len(currentRoute) > len(self.bestRoute) and len(usedAircraft) == 3:
-                self.bestRoute = list(currentRoute)
-            visited.add(currentAirport)
-            for route in currentAirport.adjacencies:
-                if route.isBlocked:
-                    continue
-                neighbor = route.destination
-                if neighbor not in visited:
-                    temporalBudget = 0
-                    newAccumulatedTime = currentAccumulatedTime + route.time
-                    if limit.lower() == "cost":
-                        flightCost = route.basePrice + route.aircraft.calculateCost(route.distance)
-                        mealsNeeded = int(newAccumulatedTime // 8) - int(currentAccumulatedTime // 8)
-                        staysNeeded = int(newAccumulatedTime // 20) - int(currentAccumulatedTime // 20)
-                        bioCost = (mealsNeeded * neighbor.foodCost) + (staysNeeded * neighbor.accommodationCost)
-                        temporalBudget = flightCost + bioCost
-                    elif limit.lower() == "time":
-                        temporalBudget = route.aircraft.calculateCostTime(route.time)
-                    newAircraft = set(usedAircraft)
-                    newAircraft.add(route.aircraft.type)
-                    dfs(neighbor, currentBudget + temporalBudget, currentRoute + [neighbor], newAircraft, newAccumulatedTime)
-            visited.remove(currentAirport)
-        dfs(origin, 0, [origin], set(), 0.0)
-        finalRoute = []
-        for a in self.bestRoute:
-            finalRoute.append(a.iataId)
-        return finalRoute
-    
     def CreateItinerary(self , visitedDestinations , criterion , totalCost):
         return Itinerary (visitedDestinations= visitedDestinations , totalCost= totalCost , criterion= criterion)

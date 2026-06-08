@@ -115,5 +115,20 @@
         "activeUser": true,
         "visitedAirports": [],
         "currentFlight": null
+    },
+    "T10433": {
+        "id": "T10433",
+        "name": "Mauro",
+        "budget": 1000.0,
+        "restantBudget": 772.5,
+        "timeAvailable": 993.0,
+        "actualAirportId": "BOG",
+        "timeSinceLastMeal": 7.0,
+        "timeSinceLastAccommodation": 7.0,
+        "activeUser": true,
+        "visitedAirports": [
+            "BOG"
+        ],
+        "currentFlight": null
     }
 }

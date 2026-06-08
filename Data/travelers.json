@@ -1,1 +1,106 @@
-{}
+{
+    "T71909": {
+        "id": "T71909",
+        "name": "isa",
+        "budget": 1000000000.0,
+        "restantBudget": 1000000000.0,
+        "timeAvailable": 23.0,
+        "actualAirportId": "GRU",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T18167": {
+        "id": "T18167",
+        "name": "isa",
+        "budget": 100000998.0,
+        "restantBudget": 100000998.0,
+        "timeAvailable": 45.0,
+        "actualAirportId": "LIM",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T76843": {
+        "id": "T76843",
+        "name": "sara",
+        "budget": 20000.0,
+        "restantBudget": 20000.0,
+        "timeAvailable": 4.0,
+        "actualAirportId": "ASU",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T18229": {
+        "id": "T18229",
+        "name": "isabella",
+        "budget": 245000000.0,
+        "restantBudget": 244999914.0,
+        "timeAvailable": 35.0,
+        "actualAirportId": "CUZ",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 10.0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T65377": {
+        "id": "T65377",
+        "name": "adonias",
+        "budget": 23438745893.0,
+        "restantBudget": 23438745893.0,
+        "timeAvailable": 32.0,
+        "actualAirportId": "BAQ",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T91317": {
+        "id": "T91317",
+        "name": "marly",
+        "budget": 100000.0,
+        "restantBudget": 100000.0,
+        "timeAvailable": 12.0,
+        "actualAirportId": "ASU",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T58539": {
+        "id": "T58539",
+        "name": "isa",
+        "budget": 100000000.0,
+        "restantBudget": 99999984.0,
+        "timeAvailable": 30.0,
+        "actualAirportId": "BAQ",
+        "timeSinceLastMeal": 4.0,
+        "timeSinceLastAccommodation": 4.0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    },
+    "T15943": {
+        "id": "T15943",
+        "name": "jd",
+        "budget": 3443534.0,
+        "restantBudget": 3443534.0,
+        "timeAvailable": 34.0,
+        "actualAirportId": "GYE",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
+    }
+}

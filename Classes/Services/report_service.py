@@ -9,15 +9,21 @@ from Classes.Domain.TemporalJob import TemporalJob
 class ReportService:
 
     def build_report(self, traveler: Traveler, graph: Graph) -> dict:
+        totals = self._build_totals(traveler)
         return {
-            "traveler":            traveler.name,
-            "visitedDestinations": self._build_destinations(traveler, graph),
-            "flightsFlown":        self._build_flights(traveler, graph),
-            "activitiesPerformed": self._build_activities(traveler),
-            "jobsPerformed":       self._build_jobs(traveler),
-            "totals":              self._build_totals(traveler),
+            "traveler": {
+                "name":            traveler.name,
+                "initial_budget":  totals["initialBudget"],
+                "total_spent":     totals["totalSpent"],
+                "total_earned":    totals["totalEarned"],
+                "final_balance":   totals["finalBalance"],
+                "time_left_hours": totals["timeRemainingH"],
+            },
+            "destinations": self._build_destinations(traveler, graph),
+            "flights":      self._build_flights(traveler, graph),
+            "activities":   self._build_activities(traveler),
+            "jobs":         self._build_jobs(traveler),
         }
-
     def _build_destinations(self, traveler: Traveler, graph: Graph) -> list:
         destinations = []
         for iata_code in traveler.visitedAirports:

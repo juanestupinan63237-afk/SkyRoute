@@ -102,5 +102,18 @@
         "activeUser": true,
         "visitedAirports": [],
         "currentFlight": null
+    },
+    "T70785": {
+        "id": "T70785",
+        "name": "nira",
+        "budget": 23438590734.0,
+        "restantBudget": 23438590716.0,
+        "timeAvailable": -0.5,
+        "actualAirportId": "EZE",
+        "timeSinceLastMeal": 2.5,
+        "timeSinceLastAccommodation": 2.5,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": null
     }
 }

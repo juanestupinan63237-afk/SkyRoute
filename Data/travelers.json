@@ -259,5 +259,29 @@
         "activeUser": true,
         "visitedAirports": [],
         "currentFlight": null
+    },
+    "T52968": {
+        "id": "T52968",
+        "name": "Simon",
+        "budget": 10000.0,
+        "restantBudget": 9880.0,
+        "timeAvailable": 20.0,
+        "actualAirportId": "BOG",
+        "timeSinceLastMeal": 0,
+        "timeSinceLastAccommodation": 0,
+        "activeUser": true,
+        "visitedAirports": [],
+        "currentFlight": {
+            "origin": "BOG",
+            "destination": "MDE",
+            "hoursTotal": 4.4,
+            "hoursProgress": 0.0,
+            "aircraftType": "Regional Plane",
+            "criterion": "cost",
+            "route": [
+                "BOG",
+                "MDE"
+            ]
+        }
     }
 }
